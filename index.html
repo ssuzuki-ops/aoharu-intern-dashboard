@@ -207,7 +207,7 @@ body {
   border-radius: 20px;
 }
 .fn-rate.ok { background: rgba(0,200,150,.15); color: #6EE7B7; }
-.fn-rate.ng { background: rgba(242,61,90,.15); color: #FCA5A5; }
+.fn-rate.ng { background: rgba(242,61,90,.15); color: $FCA5A5; }
 .fn-tgt { font-size: 10px; color: rgba(255,255,255,.25); margin-top: 4px; letter-spacing: .2px; }
 
 /* ─── EVENT CARDS ─── */
@@ -491,8 +491,8 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
       <div class="kpi am">
         <div class="kpi-accent"></div><div class="kpi-glow"></div>
         <div class="kpi-lbl">売上（今月）</div>
-        <div class="kpi-val">50<sub>万</sub></div>
-        <div class="kpi-sub">4名稼働中</div>
+        <div class="kpi-val">0<sub>万</sub></div>
+        <div class="kpi-sub">6月決定なし（#08-決定報告ベース）</div>
       </div>
     </div>
   </div>
@@ -622,9 +622,6 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
     </div>
   </div>
 
-      <div style="margin-top:12px;">
-      <a href="#" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--bl);text-decoration:none;padding:8px 16px;border:1.5px dashed var(--bl);border-radius:10px;" onclick="return false;">テレマリストはこちら → （準備中）</a>
-    </div>
   </div>
 
   <!-- 選考パイプライン -->
@@ -637,7 +634,7 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
     <div class="pipe-row">
       <div class="pipe-card"><div class="pipe-n">5</div><div class="pipe-lbl">書類打診</div></div>
       <div class="pipe-card">
-        <div class="pipe-n">2</div><div class="pipe-lbl">一次選考</div>
+        <div class="pipe-n">2</div><div class="pipe-lbl">一次選�</div>
         <div class="pipe-detail">TWOSTONE 矢野さん 6/9<br>change&amp;base 石岡さん 6/9</div>
       </div>
       <div class="pipe-card">
@@ -731,7 +728,7 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
       <div class="trend-card tl">
         <div class="tl-area">
           <div class="tl-lbl">テレマリスト</div>
-          <a href="#" class="tl-link" onclick="return false">リストはこちら →</a>
+          <a href="#" class="tl-link" onclick="return false" style="color:#fff;background:var(--or);padding:8px 16px;border-radius:8px;font-size:13px;">テレマリスト →</a>
           <div class="tl-note">※ リンクは後で設定してください</div>
         </div>
       </div>
@@ -778,7 +775,7 @@ const cos = [
   {r:'C',n:"株式会社SKY'S",cid:'3f9f7331-83a6-4edc-b2ed-8f1aec1424fc',jid:'1c0dc50a-5468-4243-86e3-511f648657f7',ind:'IT・Web',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'愛知県',sets:0},
   {r:'C',n:'日本スキルプロバイダ',cid:'e370457a-114f-48c7-9e73-67b3e10c618f',jid:'486806a3-3e78-4af6-bbfa-074c9bf2a8ab',ind:'コンサル',jobs:'3件',hrs:'週1日',rem:'フルリモート',area:'千葉県',sets:0},
   {r:'C',n:'株式会社upceed',cid:'a3e2ac1d-84d5-477d-9757-80611c18590f',jid:'e6cfe76e-6bd7-4fce-8699-6ebf39fd7bf3',ind:'広告・マーケ',jobs:'1件',hrs:'週3日以上',rem:'一部リモート可',area:'東京都',sets:1},
-  {r:'C',n:'株式会社MaVie',cid:'0b982513-81cb-4361-9e0c-2db3c066a2a1',jid:'c77e1a3b-4567-4ce5-b9fc-c2b08edcf386',ind:'コンサル',jobs:'2件',hrs:'週1日',rem:'原則出社',area:'東京都',sets:2},
+  {r:'C',n:'株式会礽MaVie',cid:'0b982513-81cb-4361-9e0c-2db3c066a2a1',jid:'c77e1a3b-4567-4ce5-b9fc-c2b08edcf386',ind:'コンサル',jobs:'2件',hrs:'週1日',rem:'原則出社',area:'東京都',sets:2},
   {r:'C',n:'株式会社UNLIMIT',cid:'f85bf177-8e85-4b64-a4af-366633ecd407',jid:'a431ddbd-14ac-4d68-9aca-35f2c2a1ebb3',ind:'教育・人材',jobs:'1件',hrs:'週2日以上',rem:'一部リモート可',area:'東京都',sets:0},
   {r:'C',n:'株式会社デジタルトレンズ',cid:'2e5b4da7-885b-4d75-9288-7c6b52067783',jid:'84697ffc-d3ca-4599-aab6-5029fae3a450',ind:'広告・マーケ',jobs:'1件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:2},
   {r:'C',n:'Acroforce株式会社',cid:'055c791d-c19f-4f38-9a37-12df20af85c7',jid:'46ed3dda-41cd-4db7-bf13-00d700620038',ind:'教育・人材',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:4},
