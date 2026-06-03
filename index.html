@@ -2,655 +2,834 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>AOHARUインターン ダッシュボード</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; background: #f0f2f8; color: #1A1A2A; }
+:root {
+  --or: #F7941D;
+  --or-light: rgba(247,148,29,.12);
+  --bl: #29ABE2;
+  --nv: #1C2B4A;
+  --nv2: #0F1B32;
+  --nv3: #243560;
+  --bg: #F0F3FA;
+  --card: #FFFFFF;
+  --text: #0F1B32;
+  --muted: #6B7A99;
+  --faint: #9BA8BF;
+  --border: #E4E9F5;
+  --green: #00C896;
+  --red: #F23D5A;
+  --purple: #7C5CFC;
+  --amber: #F59E0B;
+  --r: 16px;
+  --shadow-sm: 0 1px 3px rgba(15,27,50,.06), 0 1px 2px rgba(15,27,50,.04);
+  --shadow: 0 4px 16px rgba(15,27,50,.08), 0 1px 4px rgba(15,27,50,.04);
+  --shadow-lg: 0 12px 40px rgba(15,27,50,.12), 0 4px 12px rgba(15,27,50,.06);
+}
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #1C2B4A 0%, #253a63 100%);
-  color: white;
-  padding: 20px 36px;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── HEADER ─── */
+.hdr {
+  background: var(--nv2);
+  background-image: radial-gradient(ellipse at 80% 50%, rgba(41,171,226,.12) 0%, transparent 60%),
+                    radial-gradient(ellipse at 20% 80%, rgba(247,148,29,.08) 0%, transparent 50%);
+  padding: 0 36px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
-header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.02em; }
-header .sub { font-size: 0.8rem; opacity: 0.65; margin-top: 3px; }
-.sample-pill {
-  background: #F7941D;
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 5px 14px;
-  border-radius: 20px;
-  letter-spacing: 0.1em;
-}
-
-/* Tabs */
-.tabs { background: #f0f2f8; padding: 20px 36px 0; display: flex; gap: 10px; }
-.tab-btn {
-  padding: 10px 28px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  cursor: pointer;
-  border: 2px solid #1C2B4A;
-  transition: all 0.2s;
-}
-.tab-btn.active { background: #1C2B4A; color: white; }
-.tab-btn:not(.active) { background: transparent; color: #1C2B4A; }
-
-/* Notice */
-.notice {
-  margin: 14px 36px 0;
-  background: #fff8e6;
-  border-left: 4px solid #F7941D;
-  padding: 9px 16px;
-  font-size: 0.78rem;
-  color: #7a5800;
-  border-radius: 0 6px 6px 0;
-}
-
-/* Content */
-.content { padding: 22px 36px 50px; display: none; }
-.content.active { display: block; }
-
-/* Section */
-.section { margin-bottom: 32px; }
-.section-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #1C2B4A;
-  margin-bottom: 14px;
+.hdr-logo {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.s-badge-sample {
-  background: #e0e0e0; color: #777;
-  font-size: 0.66rem; font-weight: 600;
-  padding: 2px 7px; border-radius: 10px;
+.hdr-logo em { color: var(--or); font-style: normal; }
+.hdr-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--or); opacity: .6; }
+.hdr-right { display: flex; align-items: center; gap: 14px; }
+.badge-sample {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--or);
+  border: 1.5px solid rgba(247,148,29,.4);
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
 }
-.s-badge-real {
-  background: #e6f4ea; color: #2e7d32;
-  font-size: 0.66rem; font-weight: 600;
-  padding: 2px 7px; border-radius: 10px;
-}
+.hdr-date { font-size: 12px; color: rgba(255,255,255,.3); font-weight: 500; }
 
-/* KPI Cards */
-.kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
-.kpi-card {
-  background: white;
-  border-radius: 12px;
-  padding: 18px 20px;
-  border-top: 5px solid #F7941D;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-}
-.kpi-card.blue   { border-top-color: #29ABE2; }
-.kpi-card.green  { border-top-color: #22c55e; }
-.kpi-card.purple { border-top-color: #8b5cf6; }
-.kpi-card.red    { border-top-color: #ef4444; }
-.kpi-card.gold   { border-top-color: #f59e0b; }
-.kpi-label { font-size: 0.78rem; color: #888; margin-bottom: 8px; }
-.kpi-value { font-size: 2.1rem; font-weight: 800; color: #1C2B4A; line-height: 1; }
-.kpi-unit { font-size: 1rem; font-weight: 700; }
-.kpi-sub { font-size: 0.72rem; color: #888; margin-top: 8px; }
-.kpi-sub.green { background: #e6f4ea; color: #2e7d32; display: inline-block; padding: 2px 8px; border-radius: 10px; font-weight: 600; }
-
-/* Student Funnel */
-.funnel-card {
-  background: linear-gradient(135deg, #1C2B4A 0%, #253a63 100%);
-  border-radius: 14px;
-  padding: 24px 28px;
-  box-shadow: 0 4px 20px rgba(28,43,74,0.25);
-}
-.funnel-title { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-bottom: 20px; }
-.funnel-steps { display: flex; align-items: flex-start; gap: 0; flex-wrap: wrap; }
-.funnel-step { text-align: center; flex: 1; min-width: 100px; padding: 0 8px; }
-.funnel-step .f-num { font-size: 2rem; font-weight: 800; color: white; line-height: 1; }
-.funnel-step .f-unit { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
-.funnel-step .f-label { font-size: 0.72rem; color: rgba(255,255,255,0.55); margin-top: 5px; }
-.funnel-step .f-rate { font-size: 0.75rem; font-weight: 700; margin-top: 6px; }
-.funnel-step .f-rate.achieved { color: #4ade80; }
-.funnel-step .f-rate.missed   { color: #f87171; }
-.funnel-step .f-target { font-size: 0.65rem; padding: 2px 7px; border-radius: 10px; margin-top: 3px; display: inline-block; font-weight: 600; }
-.funnel-step .f-target.achieved { background: rgba(74,222,128,0.2); color: #4ade80; }
-.funnel-step .f-target.missed   { background: rgba(248,113,113,0.2); color: #f87171; }
-.funnel-divider { color: rgba(255,255,255,0.25); font-size: 1.5rem; padding: 20px 0 0; align-self: flex-start; }
-
-/* Matching Event */
-.event-date-label {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #555;
-  margin-bottom: 12px;
-  margin-top: 18px;
-}
-.event-date-label.active { color: #F7941D; }
-.event-date-label:first-child { margin-top: 0; }
-.event-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
-.event-card {
-  background: white;
-  border-radius: 10px;
-  padding: 14px 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+/* ─── TABS ─── */
+.tabs {
+  background: var(--nv2);
+  padding: 0 36px;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  gap: 0;
+  border-bottom: 1px solid rgba(255,255,255,.05);
 }
-.event-card .ec-name { font-size: 0.88rem; font-weight: 700; color: #1C2B4A; }
-.event-card .ec-industry { font-size: 0.72rem; color: #888; }
-.event-card .ec-status { font-size: 0.72rem; font-weight: 700; margin-top: 4px; }
-.ec-status.done { color: #29ABE2; }
-.ec-status.active { color: #F7941D; }
+.tab-btn {
+  padding: 14px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,.35);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+  letter-spacing: .2px;
+}
+.tab-btn.on { color: #fff; border-bottom-color: var(--or); }
+.tab-btn:hover:not(.on) { color: rgba(255,255,255,.6); }
 
-/* Trend */
-.trend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.trend-card {
-  background: white;
+/* ─── MAIN ─── */
+.main { max-width: 1440px; margin: 0 auto; padding: 32px 36px; }
+
+/* ─── SECTION ─── */
+.sec { margin-bottom: 40px; }
+.sec-hd { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.sec-title { font-size: 13px; font-weight: 700; color: var(--nv); letter-spacing: .4px; text-transform: uppercase; }
+.sec-line { flex: 1; height: 1px; background: var(--border); }
+.sec-sub { font-size: 12px; color: var(--faint); font-weight: 500; }
+
+/* ─── KPI CARDS ─── */
+.kpi-row { display: grid; grid-template-columns: repeat(6,1fr); gap: 16px; }
+.kpi {
+  background: var(--card);
+  border-radius: var(--r);
+  padding: 22px 20px 18px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform .15s, box-shadow .15s;
+}
+.kpi:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.kpi-accent {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: var(--r) var(--r) 0 0;
+}
+.kpi.or .kpi-accent { background: linear-gradient(90deg,var(--or),#FFBE6A); }
+.kpi.bl .kpi-accent { background: linear-gradient(90deg,var(--bl),#7DD3F7); }
+.kpi.gn .kpi-accent { background: linear-gradient(90deg,var(--green),#5EEAD4); }
+.kpi.pu .kpi-accent { background: linear-gradient(90deg,var(--purple),#A78BFA); }
+.kpi.rd .kpi-accent { background: linear-gradient(90deg,var(--red),#FB7185); }
+.kpi.am .kpi-accent { background: linear-gradient(90deg,var(--amber),#FCD34D); }
+.kpi-glow {
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  opacity: .06;
+}
+.kpi.or .kpi-glow { background: var(--or); }
+.kpi.bl .kpi-glow { background: var(--bl); }
+.kpi.gn .kpi-glow { background: var(--green); }
+.kpi.pu .kpi-glow { background: var(--purple); }
+.kpi.rd .kpi-glow { background: var(--red); }
+.kpi.am .kpi-glow { background: var(--amber); }
+.kpi-lbl { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .4px; margin-bottom: 10px; }
+.kpi-val {
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--nv);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.kpi-val sub { font-size: 16px; font-weight: 700; letter-spacing: 0; vertical-align: baseline; margin-left: 1px; }
+.kpi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+.kpi-badge.up { background: rgba(0,200,150,.1); color: #059669; }
+.kpi-badge.pct { background: rgba(124,92,252,.1); color: #5B21B6; }
+.kpi-sub { font-size: 11px; color: var(--faint); margin-top: 8px; font-weight: 500; }
+
+/* ─── FUNNEL ─── */
+.funnel {
+  background: var(--nv2);
+  background-image: radial-gradient(ellipse at 10% 50%, rgba(41,171,226,.1) 0%, transparent 50%),
+                    radial-gradient(ellipse at 90% 50%, rgba(247,148,29,.08) 0%, transparent 50%);
+  border-radius: var(--r);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255,255,255,.05);
+}
+.fn-grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 0; }
+.fn-item { text-align: center; padding: 0 12px; position: relative; }
+.fn-arrow {
+  position: absolute;
+  right: -6px;
+  top: 18px;
+  color: rgba(255,255,255,.15);
+  font-size: 18px;
+  font-weight: 300;
+}
+.fn-num {
+  font-size: 38px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.fn-num sub { font-size: 14px; font-weight: 600; letter-spacing: 0; vertical-align: baseline; opacity: .7; margin-left: 1px; }
+.fn-label { font-size: 11px; color: rgba(255,255,255,.45); margin-top: 8px; font-weight: 500; letter-spacing: .3px; }
+.fn-rate {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.fn-rate.ok { background: rgba(0,200,150,.15); color: #6EE7B7; }
+.fn-rate.ng { background: rgba(242,61,90,.15); color: #FCA5A5; }
+.fn-tgt { font-size: 10px; color: rgba(255,255,255,.25); margin-top: 4px; letter-spacing: .2px; }
+
+/* ─── EVENT CARDS ─── */
+.ev-block { margin-bottom: 20px; }
+.ev-hd { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.ev-date { font-size: 13px; font-weight: 700; color: var(--nv); }
+.ev-pill {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 20px;
+  letter-spacing: .5px;
+}
+.ev-pill.done { background: var(--border); color: var(--muted); }
+.ev-pill.live { background: linear-gradient(90deg,var(--or),#FFBE6A); color: #fff; }
+.ev-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; }
+.ev-card {
+  background: var(--card);
   border-radius: 12px;
-  padding: 18px 20px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  border-top: 4px solid #e0e0e0;
+  padding: 16px 16px 14px;
+  box-shadow: var(--shadow-sm);
+  border-top: 3px solid transparent;
+  transition: transform .15s, box-shadow .15s;
 }
-.trend-card.current { border-top-color: #F7941D; }
-.trend-card .t-month { font-size: 0.78rem; color: #888; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-.trend-card .t-num  { font-size: 2rem; font-weight: 800; color: #1C2B4A; }
-.trend-card .t-unit { font-size: 0.9rem; }
-.trend-card .t-cos  { font-size: 0.72rem; color: #F7941D; font-weight: 600; margin-top: 6px; }
-.trend-card .t-stats { font-size: 0.72rem; color: #999; margin-top: 4px; line-height: 1.7; }
-.hot { background: #fff0e0; color: #F7941D; font-size: 0.68rem; font-weight: 700; padding: 2px 7px; border-radius: 8px; }
+.ev-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.ev-card.done { border-top-color: #D1D5DB; }
+.ev-card.live { border-top-color: var(--or); background: linear-gradient(180deg,#FFFBF5 0%,#fff 100%); }
+.ev-co { font-size: 13px; font-weight: 700; color: var(--nv); }
+.ev-ind { font-size: 11px; color: var(--faint); margin-top: 3px; font-weight: 500; }
+.ev-st { font-size: 11px; font-weight: 700; margin-top: 10px; }
+.ev-st.done { color: var(--faint); }
+.ev-st.live { color: var(--or); }
 
-/* Company Table */
-.filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
-.filter-bar select {
-  padding: 7px 12px; border: 1px solid #ddd; border-radius: 8px;
-  font-size: 0.82rem; background: white; color: #333;
+/* ─── COMPANY TABLE ─── */
+.filter-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.fg { display: flex; align-items: center; gap: 6px; }
+.fg-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .4px; }
+.fbtn {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .15s;
+  font-family: inherit;
 }
-.count-label { font-size: 0.82rem; color: #888; margin-left: auto; }
-.table-wrap { background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); overflow: hidden; }
-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-th { background: #f7f8fb; padding: 11px 14px; text-align: left; font-weight: 600; color: #555; border-bottom: 1px solid #eaecf0; white-space: nowrap; }
-td { padding: 11px 14px; border-bottom: 1px solid #f2f4f7; }
-tr:last-child td { border-bottom: none; }
-tr:hover td { background: #fafbfd; }
-a.co-link { color: #1C2B4A; text-decoration: none; font-weight: 600; }
-a.co-link:hover { color: #F7941D; }
+.fbtn.on { background: var(--nv); color: #fff; border-color: var(--nv); }
+.fbtn:hover:not(.on) { border-color: var(--nv); color: var(--nv); }
+.tbl-meta { font-size: 12px; color: var(--faint); margin-bottom: 10px; font-weight: 500; }
+.tbl-wrap {
+  background: var(--card);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+table { width: 100%; border-collapse: collapse; }
+thead tr { background: var(--nv); }
+thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #F7F9FF; }
+tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
+.rk {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px; height: 26px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+.rk-A { background: #FEF3C7; color: #92400E; }
+.rk-B { background: #DBEAFE; color: #1D4ED8; }
+.rk-C { background: #F1F5F9; color: #64748B; }
+.rk-new { background: #D1FAE5; color: #065F46; }
+.co-link { color: var(--nv); font-weight: 600; text-decoration: none; transition: color .15s; }
+.co-link:hover { color: var(--or); }
+.st {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+  letter-spacing: .3px;
+}
+.st-掲載中 { background: #EFF6FF; color: #1D4ED8; }
+.st-商談中 { background: #FFFBEB; color: #B45309; }
+.st-選考中 { background: #F5F3FF; color: #6D28D9; }
+.st-成約済 { background: #ECFDF5; color: #065F46; }
+.st-失注 { background: #FEF2F2; color: #991B1B; }
 
-.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; font-weight: 600; }
-.badge.新規  { background: #fff0e0; color: #F7941D; }
-.badge.A     { background: #fff0e0; color: #F7941D; }
-.badge.B     { background: #e6f0ff; color: #29ABE2; }
-.badge.C     { background: #f0f0f0; color: #999; }
-.badge.掲載中 { background: #e6f4ea; color: #2e7d32; }
-.badge.商談中 { background: #fff8e6; color: #f59e0b; }
-.badge.選考中 { background: #e8f0fe; color: #1a73e8; }
-.badge.成約済 { background: #fce4ec; color: #c2185b; }
-.badge.失注  { background: #f0f0f0; color: #999; }
+/* ─── PIPELINE ─── */
+.pipe-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; }
+.pipe-card {
+  background: var(--card);
+  border-radius: var(--r);
+  padding: 24px 20px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform .15s;
+}
+.pipe-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.pipe-n {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--nv);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.pipe-lbl { font-size: 12px; color: var(--muted); margin-top: 6px; font-weight: 600; letter-spacing: .3px; }
+.pipe-detail {
+  font-size: 11px;
+  color: var(--faint);
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  text-align: left;
+  line-height: 1.9;
+  font-weight: 500;
+}
 
-/* Telesales */
-.tele-funnel { background: white; border-radius: 12px; padding: 20px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.tf-step { text-align: center; min-width: 100px; }
-.tf-step .tf-label { font-size: 0.72rem; color: #888; margin-bottom: 4px; }
-.tf-step .tf-val { font-size: 1.7rem; font-weight: 800; color: #1C2B4A; }
-.tf-step .tf-rate { font-size: 0.7rem; color: #F7941D; font-weight: 600; margin-top: 3px; }
-.tf-arrow { color: #ccc; font-size: 1.4rem; }
-.sub-table { margin-top: 12px; }
+/* ─── LOG TABLE ─── */
+.log-wrap { background: var(--card); border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow); }
+.log-tbl { width: 100%; border-collapse: collapse; }
+.log-tbl th {
+  background: var(--nv);
+  padding: 11px 18px;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .8px;
+  text-transform: uppercase;
+}
+.log-tbl td { padding: 11px 18px; font-size: 13px; border-bottom: 1px solid var(--border); font-weight: 500; }
+.log-tbl tr:last-child td { border-bottom: none; }
+.log-tbl tbody tr:hover { background: #F7F9FF; }
 
-/* Pipeline */
-.pipeline { background: white; border-radius: 12px; padding: 20px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); display: flex; align-items: center; gap: 0; overflow-x: auto; }
-.pipe-step { text-align: center; min-width: 100px; }
-.pipe-step .ps-label { font-size: 0.72rem; color: #888; margin-bottom: 6px; }
-.pipe-step .ps-val { font-size: 1.7rem; font-weight: 800; color: #1C2B4A; }
-.pipe-step .ps-unit { font-size: 0.8rem; color: #888; }
-.pipe-arr { color: #29ABE2; font-size: 1.4rem; padding: 0 8px; }
+/* ─── STAFF TABLE ─── */
+.staff-wrap { background: var(--card); border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow); }
+.staff-tbl { width: 100%; border-collapse: collapse; }
+.staff-tbl th {
+  background: var(--nv);
+  padding: 11px 18px;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .8px;
+  text-transform: uppercase;
+}
+.staff-tbl td { padding: 11px 18px; font-size: 13px; border-bottom: 1px solid var(--border); font-weight: 500; }
+.staff-tbl tr:last-child td { border-bottom: none; }
+.staff-tbl tbody tr:hover { background: #F7F9FF; }
+.sta-on { color: var(--green); font-weight: 800; font-size: 11px; letter-spacing: .3px; }
+.sta-go { color: var(--or); font-weight: 800; font-size: 11px; letter-spacing: .3px; }
+.sta-adj { color: var(--faint); font-weight: 700; font-size: 11px; }
 
-/* Conversion */
-.conv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
-.conv-card { background: white; border-radius: 12px; padding: 18px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
-.conv-card .cv-label { font-size: 0.78rem; color: #888; margin-bottom: 8px; }
-.conv-card .cv-val { font-size: 1.9rem; font-weight: 800; color: #F7941D; }
+/* ─── TREND ─── */
+.trend-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+.trend-card {
+  background: var(--card);
+  border-radius: var(--r);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: transform .15s;
+}
+.trend-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.trend-card.now { border: 2px solid var(--or); background: #FFFCF7; }
+.trend-card.tl {
+  background: var(--nv2);
+  background-image: radial-gradient(ellipse at 80% 80%, rgba(41,171,226,.15) 0%, transparent 60%);
+  border: 1px solid rgba(255,255,255,.06);
+}
+.tr-mo { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .4px; margin-bottom: 12px; text-transform: uppercase; }
+.tr-mo.now { color: var(--or); }
+.tr-mo.tl { color: rgba(255,255,255,.4); }
+.tr-n { font-size: 44px; font-weight: 900; color: var(--nv); line-height: 1; letter-spacing: -2px; }
+.trend-card.now .tr-n { color: var(--or); }
+.tr-n sub { font-size: 18px; font-weight: 700; letter-spacing: 0; vertical-align: baseline; opacity: .6; margin-left: 2px; }
+.tr-stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.trend-card.now .tr-stats { border-top-color: rgba(247,148,29,.2); }
+.tr-sv { font-size: 19px; font-weight: 800; color: var(--nv); text-align: center; }
+.tr-sl { font-size: 10px; color: var(--faint); text-align: center; font-weight: 600; letter-spacing: .3px; margin-top: 2px; }
+.tr-none { font-size: 13px; color: var(--faint); margin-top: 10px; font-weight: 500; }
+.tl-area { display: flex; flex-direction: column; justify-content: flex-end; height: 100%; padding-top: 12px; }
+.tl-lbl { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.35); letter-spacing: .5px; text-transform: uppercase; margin-bottom: 8px; }
+.tl-link { font-size: 16px; font-weight: 800; color: var(--or); text-decoration: none; letter-spacing: -.3px; }
+.tl-link:hover { text-decoration: underline; }
+.tl-note { font-size: 11px; color: rgba(255,255,255,.2); margin-top: 10px; font-weight: 500; }
 
-/* Log Table */
-.log-wrap { background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); overflow: hidden; }
-
-/* Onboarding */
-.entry-table { background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); overflow: hidden; }
-
-/* WIP */
-.wip { background: white; border-radius: 14px; padding: 60px 30px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
-.wip h3 { color: #1C2B4A; font-size: 1.1rem; margin: 16px 0 8px; }
-.wip p { color: #888; font-size: 0.85rem; }
+/* ─── MISC ─── */
+.tab-pane { display: none; }
+.tab-pane.on { display: block; }
+.wip { text-align: center; padding: 100px; color: var(--faint); font-size: 14px; font-weight: 600; }
 </style>
 </head>
 <body>
 
-<header>
-  <div>
-    <h1>AOHARUインターン</h1>
-    <div class="sub">長期インターン事業ダッシュボード</div>
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-logo">
+    <em>AOHARU</em>インターン
+    <div class="hdr-dot"></div>
+    <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;">企業管理</span>
   </div>
-  <div class="sample-pill">SAMPLE</div>
-</header>
+  <div class="hdr-right">
+    <span class="badge-sample">Sample</span>
+    <span class="hdr-date">2026.06.02</span>
+  </div>
+</div>
 
+<!-- TABS -->
 <div class="tabs">
-  <button class="tab-btn active" onclick="switchTab('long', this)">長期インターン</button>
-  <button class="tab-btn" onclick="switchTab('short', this)">短期インターン</button>
+  <div class="tab-btn on" onclick="switchTab('long',this)">長期インターン</div>
+  <div class="tab-btn" onclick="switchTab('short',this)">短期インターン</div>
 </div>
 
-<div class="notice">
-  掲載企業は aoharu-intern.com/jobs 実データ ｜ KPI（アポ・商談・成約・売上）は6月実績 ｜ テレマ実績・選考パイプラインはサンプル（Slack接続後に自動更新予定）
-</div>
-
-<!-- 長期インターン -->
-<div class="content active" id="long">
+<div class="main">
+<div id="tab-long" class="tab-pane on">
 
   <!-- KPI -->
-  <div class="section">
-    <div class="section-title">KPI — 今月 <span class="s-badge-real">実データ</span></div>
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-label">掲載企業数</div>
-        <div class="kpi-value">39<span class="kpi-unit">社</span></div>
-        <div class="kpi-sub"><span class="green">先月比 +3社</span></div>
+  <div class="sec">
+    <div class="sec-hd">
+      <span class="sec-title">KPI</span>
+      <div class="sec-line"></div>
+      <span class="sec-sub">6月 実績</span>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi or">
+        <div class="kpi-accent"></div><div class="kpi-glow"></div>
+        <div class="kpi-lbl">掲載企業数</div>
+        <div class="kpi-val">39<sub>社</sub></div>
+        <div class="kpi-badge up">先月比 +3社</div>
       </div>
-      <div class="kpi-card blue">
-        <div class="kpi-label">掲載案件数</div>
-        <div class="kpi-value">58<span class="kpi-unit">件</span></div>
+      <div class="kpi bl">
+        <div class="kpi-accent"></div><div class="kpi-glow"></div>
+        <div class="kpi-lbl">掲載案件数</div>
+        <div class="kpi-val">58<sub>件</sub></div>
         <div class="kpi-sub">求人58件</div>
       </div>
-      <div class="kpi-card green">
-        <div class="kpi-label">アポイント数</div>
-        <div class="kpi-value">18</div>
-        <div class="kpi-sub"><span class="green">先月比 +5件</span></div>
+      <div class="kpi gn">
+        <div class="kpi-accent"></div><div class="kpi-glow"></div>
+        <div class="kpi-lbl">アポイント数</div>
+        <div class="kpi-val" style="font-size:22px;letter-spacing:-.5px;color:var(--muted);">集計中</div>
+        <div class="kpi-sub">Slack連携後に自動反映</div>
       </div>
-      <div class="kpi-card purple">
-        <div class="kpi-label">商談数</div>
-        <div class="kpi-value">11</div>
-        <div class="kpi-sub">アポ→商談 61%</div>
+      <div class="kpi pu">
+        <div class="kpi-accent"></div><div class="kpi-glow"></div>
+        <div class="kpi-lbl">商談数</div>
+        <div class="kpi-val" style="font-size:22px;letter-spacing:-.5px;color:var(--muted);">集計中</div>
+        <div class="kpi-sub">Slack連携後に自動反映</div>
       </div>
-      <div class="kpi-card red">
-        <div class="kpi-label">成約数</div>
-        <div class="kpi-value">4</div>
-        <div class="kpi-sub">商談→成約 36%</div>
+      <div class="kpi rd">
+        <div class="kpi-accent"></div><div class="kpi-glow"></div>
+        <div class="kpi-lbl">成約数</div>
+        <div class="kpi-val">0</div>
+        <div class="kpi-sub">6月実績（決定報告ベース）</div>
       </div>
-      <div class="kpi-card gold">
-        <div class="kpi-label">売上（今月）</div>
-        <div class="kpi-value">50<span class="kpi-unit">万</span></div>
+      <div class="kpi am">
+        <div class="kpi-accent"></div><div class="kpi-glow"></div>
+        <div class="kpi-lbl">売上（今月）</div>
+        <div class="kpi-val">50<sub>万</sub></div>
         <div class="kpi-sub">4名稼働中</div>
       </div>
     </div>
   </div>
 
   <!-- 学生ファネル -->
-  <div class="section">
-    <div class="funnel-card">
-      <div class="funnel-title">学生ファネル — ステップ率 (累計 2025.10〜)</div>
-      <div class="funnel-steps">
-        <div class="funnel-step">
-          <div class="f-num">3,207<span style="font-size:1rem">名</span></div>
-          <div class="f-label">LINE登録</div>
+  <div class="sec">
+    <div class="sec-hd">
+      <span class="sec-title">学生ファネル — ステップ率</span>
+      <div class="sec-line"></div>
+      <span class="sec-sub">累計 2025.10〜</span>
+    </div>
+    <div class="funnel">
+      <div class="fn-grid">
+        <div class="fn-item">
+          <div class="fn-num">3,207<sub>名</sub></div>
+          <div class="fn-label">LINE登録</div>
+          <div class="fn-arrow">›</div>
         </div>
-        <div class="funnel-divider">›</div>
-        <div class="funnel-step">
-          <div class="f-num">2,241<span style="font-size:1rem">名</span></div>
-          <div class="f-label">PD完了</div>
-          <div class="f-rate achieved">LINE→PD 70%</div>
-          <div class="f-target achieved">目標60% 達成</div>
+        <div class="fn-item">
+          <div class="fn-num">2,241<sub>名</sub></div>
+          <div class="fn-label">PD完了</div>
+          <div class="fn-rate ok">70%</div>
+          <div class="fn-tgt">目標60% — 達成</div>
+          <div class="fn-arrow">›</div>
         </div>
-        <div class="funnel-divider">›</div>
-        <div class="funnel-step">
-          <div class="f-num">356<span style="font-size:1rem">名</span></div>
-          <div class="f-label">面談予約</div>
-          <div class="f-rate missed">PD→予約 16%</div>
-          <div class="f-target missed">目標25% 未達</div>
+        <div class="fn-item">
+          <div class="fn-num">356<sub>名</sub></div>
+          <div class="fn-label">面談予約</div>
+          <div class="fn-rate ng">16%</div>
+          <div class="fn-tgt">目標25% — 未達</div>
+          <div class="fn-arrow">›</div>
         </div>
-        <div class="funnel-divider">›</div>
-        <div class="funnel-step">
-          <div class="f-num">243<span style="font-size:1rem">名</span></div>
-          <div class="f-label">面談実施</div>
-          <div class="f-rate missed">予約→実施 68%</div>
-          <div class="f-target missed">目標70% 未達</div>
+        <div class="fn-item">
+          <div class="fn-num">243<sub>名</sub></div>
+          <div class="fn-label">面談実施</div>
+          <div class="fn-rate ng">68%</div>
+          <div class="fn-tgt">目標70% — 未達</div>
+          <div class="fn-arrow">›</div>
         </div>
-        <div class="funnel-divider">›</div>
-        <div class="funnel-step">
-          <div class="f-num">75<span style="font-size:1rem">名</span></div>
-          <div class="f-label">Uセット</div>
-          <div class="f-rate missed">実施→セット 38%</div>
-          <div class="f-target missed">目標65% 未達</div>
+        <div class="fn-item">
+          <div class="fn-num">75<sub>名</sub></div>
+          <div class="fn-label">Uセット</div>
+          <div class="fn-rate ng">38%</div>
+          <div class="fn-tgt">目標65% — 未達</div>
+          <div class="fn-arrow">›</div>
         </div>
-        <div class="funnel-divider">›</div>
-        <div class="funnel-step">
-          <div class="f-num">28<span style="font-size:1rem">名</span></div>
-          <div class="f-label">決定</div>
-          <div class="f-rate achieved">セット→決定 37%</div>
-          <div class="f-target achieved">目標35% 達成</div>
+        <div class="fn-item">
+          <div class="fn-num">28<sub>名</sub></div>
+          <div class="fn-label">決定</div>
+          <div class="fn-rate ok">37%</div>
+          <div class="fn-tgt">目標35% — 達成</div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- マッチングイベント -->
-  <div class="section">
-    <div class="section-title">マッチングイベント 参加企業</div>
-
-    <div class="event-date-label">5月27日（終了）</div>
-    <div class="event-grid">
-      <div class="event-card">
-        <div class="ec-name">リラクション</div>
-        <div class="ec-industry">サービス</div>
-        <div class="ec-status done">参加済</div>
+  <div class="sec">
+    <div class="sec-hd">
+      <span class="sec-title">マッチングイベント</span>
+      <div class="sec-line"></div>
+      <span class="sec-sub">月次 ZOOM 開催</span>
+    </div>
+    <div class="ev-block">
+      <div class="ev-hd">
+        <span class="ev-date">5月27日（水）</span>
+        <span class="ev-pill done">終了</span>
       </div>
-      <div class="event-card">
-        <div class="ec-name">TWOSTONE&Sons</div>
-        <div class="ec-industry">IT・Web</div>
-        <div class="ec-status done">参加済</div>
-      </div>
-      <div class="event-card">
-        <div class="ec-name">和会</div>
-        <div class="ec-industry">その他</div>
-        <div class="ec-status done">参加済</div>
-      </div>
-      <div class="event-card">
-        <div class="ec-name">change&base</div>
-        <div class="ec-industry">教育・人材</div>
-        <div class="ec-status done">参加済</div>
-      </div>
-      <div class="event-card">
-        <div class="ec-name">エコライフ</div>
-        <div class="ec-industry">サービス</div>
-        <div class="ec-status done">参加済</div>
+      <div class="ev-grid">
+        <div class="ev-card done"><div class="ev-co">TWOSTONE&amp;Sons</div><div class="ev-ind">教育・人材</div><div class="ev-st done">参加済</div></div>
+        <div class="ev-card done"><div class="ev-co">change&amp;base</div><div class="ev-ind">教育・人材</div><div class="ev-st done">参加済</div></div>
+        <div class="ev-card done"><div class="ev-co">Rebozu合同会社</div><div class="ev-ind">コンサル</div><div class="ev-st done">参加済</div></div>
+        <div class="ev-card done"><div class="ev-co">和会</div><div class="ev-ind">その他</div><div class="ev-st done">参加済</div></div>
+        <div class="ev-card done"><div class="ev-co">エコライフ</div><div class="ev-ind">サービス</div><div class="ev-st done">参加済</div></div>
       </div>
     </div>
-
-    <div class="event-date-label active" style="margin-top:20px;">6月9日（集客中）</div>
-    <div class="event-grid">
-      <div class="event-card">
-        <div class="ec-name">LSIGN POST</div>
-        <div class="ec-industry">教育・人材</div>
-        <div class="ec-status active">集客中</div>
+    <div class="ev-block">
+      <div class="ev-hd">
+        <span class="ev-date">6月9日（火）</span>
+        <span class="ev-pill live">集客中</span>
       </div>
-      <div class="event-card">
-        <div class="ec-name">アガルートSP</div>
-        <div class="ec-industry">コンサル</div>
-        <div class="ec-status active">集客中</div>
-      </div>
-      <div class="event-card">
-        <div class="ec-name">Don Richy</div>
-        <div class="ec-industry">サービス</div>
-        <div class="ec-status active">集客中</div>
-      </div>
-      <div class="event-card">
-        <div class="ec-name">メディアエイド</div>
-        <div class="ec-industry">IT・Web</div>
-        <div class="ec-status active">集客中</div>
-      </div>
-      <div class="event-card">
-        <div class="ec-name">ジェイック</div>
-        <div class="ec-industry">教育・人材</div>
-        <div class="ec-status active">集客中</div>
+      <div class="ev-grid">
+        <div class="ev-card live"><div class="ev-co">LSIGN POST</div><div class="ev-ind">教育・人材</div><div class="ev-st live">参加予定</div></div>
+        <div class="ev-card live"><div class="ev-co">アガルートSP</div><div class="ev-ind">コンサル</div><div class="ev-st live">参加予定</div></div>
+        <div class="ev-card live"><div class="ev-co">Don Richy</div><div class="ev-ind">サービス</div><div class="ev-st live">参加予定</div></div>
+        <div class="ev-card live"><div class="ev-co">メディアエイド</div><div class="ev-ind">IT・Web</div><div class="ev-st live">参加予定</div></div>
+        <div class="ev-card live"><div class="ev-co">ジェイック</div><div class="ev-ind">教育・人材</div><div class="ev-st live">参加予定</div></div>
       </div>
     </div>
-  </div>
-
-  <!-- 新規開拓状況 -->
-  <div class="section">
-    <div class="section-title">新規開拓状況（月次）<span class="s-badge-real">今月実データ</span></div>
-    <div class="trend-grid">
-      <div class="trend-card">
-        <div class="t-month">先々月（4月）<span class="s-badge-sample">サンプル</span></div>
-        <div><span class="t-num">5</span><span class="t-unit"> 社</span></div>
-        <div class="t-stats">アポ 10件<br>商談 7件<br>成約 2件</div>
+    <div class="ev-block">
+      <div class="ev-hd">
+        <span class="ev-date">6月24日（水）</span>
+        <span class="ev-pill live">集客中</span>
       </div>
-      <div class="trend-card">
-        <div class="t-month">先月（5月）<span class="s-badge-sample">サンプル</span></div>
-        <div><span class="t-num">8</span><span class="t-unit"> 社</span></div>
-        <div class="t-stats">アポ 13件<br>商談 9件<br>成約 3件</div>
-      </div>
-      <div class="trend-card current">
-        <div class="t-month">今月（6月）— 月中 <span class="hot">HOT</span></div>
-        <div><span class="t-num">3</span><span class="t-unit"> 社</span></div>
-        <div class="t-cos">LSIGN POST / アガルートSP / Don Richy</div>
-        <div class="t-stats">アポ 18件<br>商談 11件<br>成約 4件</div>
+      <div class="ev-grid">
+        <div class="ev-card live"><div class="ev-co">ハイボール</div><div class="ev-ind">広告・マーケ</div><div class="ev-st live">参加予定</div></div>
+        <div class="ev-card live"><div class="ev-co">YUMEA</div><div class="ev-ind">サービス</div><div class="ev-st live">参加予定</div></div>
+        <div class="ev-card" style="border-top:3px dashed var(--border);background:#fafbff;"><div class="ev-co" style="color:var(--faint)">+3社 集客中</div><div class="ev-ind">目標5社</div><div class="ev-st" style="color:var(--faint)">調整中</div></div>
       </div>
     </div>
   </div>
 
   <!-- 掲載企業一覧 -->
-  <div class="section">
-    <div class="section-title">掲載企業一覧（aoharu-intern.com 実データ / 39社）</div>
-    <div class="filter-bar">
-      <select id="f-rank" onchange="filterTable()">
-        <option value="">注力 すべて</option>
-        <option value="新規">新規</option>
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="C">C</option>
-      </select>
-      <select id="f-status" onchange="filterTable()">
-        <option value="">ステータス すべて</option>
-        <option value="掲載中">掲載中</option>
-        <option value="商談中">商談中</option>
-        <option value="選考中">選考中</option>
-        <option value="成約済">成約済</option>
-      </select>
-      <select id="f-industry" onchange="filterTable()">
-        <option value="">業界 すべて</option>
-        <option value="IT・Web">IT・Web</option>
-        <option value="教育・人材">教育・人材</option>
-        <option value="コンサル">コンサル</option>
-        <option value="広告・マーケ">広告・マーケ</option>
-        <option value="サービス">サービス</option>
-        <option value="その他">その他</option>
-      </select>
-      <span class="count-label" id="co-count">39社 表示中</span>
+  <div class="sec">
+    <div class="sec-hd">
+      <span class="sec-title">掲載企業一覧</span>
+      <div class="sec-line"></div>
+      <span class="sec-sub">aoharu-intern.com 実データ — 社名クリックで求人ページへ — 累計セットはSlack応募意思取得から集計</span>
     </div>
-    <div class="table-wrap">
+    <div class="filter-bar">
+      <div class="fg">
+        <span class="fg-label">注力</span>
+        <button class="fbtn on" onclick="ft(this,'r','all')">すべて</button>
+        <button class="fbtn" onclick="ft(this,'r','A')">A</button>
+        <button class="fbtn" onclick="ft(this,'r','B')">B</button>
+        <button class="fbtn" onclick="ft(this,'r','C')">C</button>
+      </div>
+    </div>
+    <div class="tbl-meta" id="co-cnt">39社 表示中</div>
+    <div class="tbl-wrap">
       <table>
-        <thead><tr><th>注力</th><th>会社名</th><th>業界</th><th>稼働条件</th><th>エリア</th><th>ステータス</th></tr></thead>
-        <tbody id="co-tbody"></tbody>
+        <thead><tr>
+          <th>注力</th><th>会社名</th><th>業界</th><th>案件数</th><th>稼働</th><th>リモート</th><th>地域</th><th>累計セット</th>
+        </tr></thead>
+        <tbody id="co-body"></tbody>
       </table>
     </div>
   </div>
 
-  <!-- テレマ実績 -->
-  <div class="section">
-    <div class="section-title">テレマ実績（ISチc��ム）今月 <span class="s-badge-sample">サンプル</span></div>
-    <div class="tele-funnel">
-      <div class="tf-step">
-        <div class="tf-label">架電数</div>
-        <div class="tf-val">120</div>
-      </div>
-      <div class="tf-arrow">›</div>
-      <div class="tf-step">
-        <div class="tf-label">受付突破</div>
-        <div class="tf-val">34</div>
-        <div class="tf-rate">突破率 28%</div>
-      </div>
-      <div class="tf-arrow">›</div>
-      <div class="tf-step">
-        <div class="tf-label">アポ設定</div>
-        <div class="tf-val">12</div>
-        <div class="tf-rate">突破→アポ 35%</div>
-      </div>
-    </div>
-    <div class="sub-table">
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>担当</th><th>架電</th><th>受付突破</th><th>アポ</th></tr></thead>
-          <tbody>
-            <tr><td>IS担当A</td><td>60</td><td>18 (30%)</td><td>6</td></tr>
-            <tr><td>IS担当B</td><td>40</td><td>10 (25%)</td><td>4</td></tr>
-            <tr><td>IS担当C</td><td>20</td><td>6 (30%)</td><td>2</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div style="margin-top:12px;">
+      <a href="#" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--bl);text-decoration:none;padding:8px 16px;border:1.5px dashed var(--bl);border-radius:10px;" onclick="return false;">テレマリストはこちら → （準備中）</a>
     </div>
   </div>
 
   <!-- 選考パイプライン -->
-  <div class="section">
-    <div class="section-title">選考パイプライン（学生）<span class="s-badge-sample">サンプル</span></div>
-    <div class="pipeline">
-      <div class="pipe-step"><div class="ps-label">書類打診</div><div class="ps-val">6<span class="ps-unit">名</span></div></div>
-      <div class="pipe-arr">›</div>
-      <div class="pipe-step"><div class="ps-label">一次選考</div><div class="ps-val">4<span class="ps-unit">名</span></div></div>
-      <div class="pipe-arr">›</div>
-      <div class="pipe-step"><div class="ps-label">最終選考</div><div class="ps-val">3<span class="ps-unit">名</span></div></div>
-      <div class="pipe-arr">›</div>
-      <div class="pipe-step"><div class="ps-label">内定</div><div class="ps-val">2<span class="ps-unit">名</span></div></div>
-      <div class="pipe-arr">›</div>
-      <div class="pipe-step"><div class="ps-label">承諾</div><div class="ps-val">4<span class="ps-unit">名</span></div></div>
+  <div class="sec">
+    <div class="sec-hd">
+      <span class="sec-title">選考パイプライン</span>
+      <div class="sec-line"></div>
+      <span class="sec-sub">6月 — #10-長期インターン より</span>
     </div>
-  </div>
-
-  <!-- 転換率 -->
-  <div class="section">
-    <div class="section-title">転換率サマリ</div>
-    <div class="conv-grid">
-      <div class="conv-card">
-        <div class="cv-label">アポ → 商談 <span class="s-badge-real">実データ</span></div>
-        <div class="cv-val">61%</div>
+    <div class="pipe-row">
+      <div class="pipe-card"><div class="pipe-n">5</div><div class="pipe-lbl">書類打診</div></div>
+      <div class="pipe-card">
+        <div class="pipe-n">2</div><div class="pipe-lbl">一次選考</div>
+        <div class="pipe-detail">TWOSTONE 矢野さん 6/9<br>change&amp;base 石岡さん 6/9</div>
       </div>
-      <div class="conv-card">
-        <div class="cv-label">商談 → 成約 <span class="s-badge-real">実データ</span></div>
-        <div class="cv-val">36%</div>
+      <div class="pipe-card">
+        <div class="pipe-n">1</div><div class="pipe-lbl">最終選考</div>
+        <div class="pipe-detail">change&amp;base 中村さん 6/13</div>
       </div>
-      <div class="conv-card">
-        <div class="cv-label">書類 → 承諾 <span class="s-badge-sample">サンプル</span></div>
-        <div class="cv-val">42%</div>
+      <div class="pipe-card">
+        <div class="pipe-n">1</div><div class="pipe-lbl">内定</div>
+        <div class="pipe-detail">PLAINER 中川さん<br>クロージング中</div>
       </div>
-      <div class="conv-card">
-        <div class="cv-label">架電 → アポ <span class="s-badge-sample">サンプル</span></div>
-        <div class="cv-val">10%</div>
+      <div class="pipe-card">
+        <div class="pipe-n">0</div><div class="pipe-lbl">承諾</div>
+        <div class="pipe-detail" style="color:var(--faint)">6月実績なし</div>
       </div>
     </div>
   </div>
 
   <!-- 商談ログ -->
-  <div class="section">
-    <div class="section-title">商談ログ（直近）<span class="s-badge-sample">サンプル</span></div>
+  <div class="sec">
+    <div class="sec-hd">
+      <span class="sec-title">商談ログ — 直近</span>
+      <span style="background:#FFFBEB;color:#B45309;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;letter-spacing:.5px;">SAMPLE</span>
+      <div class="sec-line"></div>
+      <span class="sec-sub">Slack ワークフロー入力後に実データ反映予定</span>
+    </div>
     <div class="log-wrap">
-      <table>
+      <table class="log-tbl">
         <thead><tr><th>日付</th><th>企業</th><th>種別</th><th>結果</th></tr></thead>
         <tbody>
           <tr><td>06/01</td><td>helix</td><td>商談</td><td>次回提案</td></tr>
           <tr><td>05/30</td><td>forest</td><td>アポ</td><td>商談設定</td></tr>
           <tr><td>05/28</td><td>CACTAS</td><td>商談</td><td>検討中</td></tr>
-          <tr><td>05/26</td><td>TWOSTONE&Sons</td><td>商談</td><td>✅ 成約</td></tr>
+          <tr><td>05/26</td><td>TWOSTONE&amp;Sons</td><td>商談</td><td>成約</td></tr>
           <tr><td>05/24</td><td>メディアエイド</td><td>アポ</td><td>商談設定</td></tr>
-          <tr><td>05/22</td><td>リラクション</td><td>商談</td><td>✅ 成約</td></tr>
+          <tr><td>05/22</td><td>リラクション</td><td>商談</td><td>成約</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
   <!-- 入社データ -->
-  <div class="section">
-    <div class="section-title">入社データ（稼働中）<span class="s-badge-real">実データ</span></div>
-    <div class="entry-table">
-      <table>
-        <thead><tr><th>学生名</th><th>企業</th><th>入社日</th><th>在籍</th><th>単価</th></tr></thead>
+  <div class="sec">
+    <div class="sec-hd">
+      <span class="sec-title">入社データ — 稼働中</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="staff-wrap">
+      <table class="staff-tbl">
+        <thead><tr><th>学生名</th><th>企業</th><th>入社日</th><th>状況</th><th>在籍月</th><th>単価</th></tr></thead>
         <tbody>
-          <tr><td>小野 さん</td><td>株式会社リラクション</td><td>2026/06/02</td><td>1ヶ月目</td><td>15万</td></tr>
-          <tr><td>伊藤 さん</td><td>株式会社helix</td><td>2026/06/08</td><td>1ヶ月目</td><td>10万</td></tr>
-          <tr><td>山口 さん</td><td>forest株式会社</td><td>2026/05/21</td><td>1ヶ月目</td><td>10万</td></tr>
-          <tr><td>武田 さん</td><td>リモア</td><td>2026/05/—</td><td>1ヶ月目</td><td>15万</td></tr>
+          <tr><td>小野さん</td><td>リラクション</td><td>6/2</td><td><span class="sta-on">稼働中</span></td><td class="tenure" data-start="2026-06-02"></td><td>15万円</td></tr>
+          <tr><td>伊藤さん</td><td>helix</td><td>6/8 予定</td><td><span class="sta-go">入社予定</span></td><td>—</td><td>10万円</td></tr>
+          <tr><td>山口さん</td><td>forest</td><td>5/21</td><td><span class="sta-on">稼働中</span></td><td class="tenure" data-start="2026-05-21"></td><td>10万円</td></tr>
+          <tr><td>武田さん</td><td>リモア</td><td>調整中</td><td><span class="sta-adj">調整中</span></td><td>15万円</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-</div>
-
-<!-- 短期インターン -->
-<div class="content" id="short">
-  <div class="section">
-    <div class="wip">
-      <div style="font-size:3rem;">🚧</div>
-      <h3>短期インターン対応中</h3>
-      <p>長期インターンの設計完了後に追加します。</p>
+  <!-- 新規開拓 -->
+  <div class="sec">
+    <div class="sec-hd">
+      <span class="sec-title">新規開拓状況</span>
+      <div class="sec-line"></div>
+      <span class="sec-sub">今月掲載スタート企業</span>
+    </div>
+    <div class="trend-row">
+      <div class="trend-card">
+        <div class="tr-mo">先々月（4月）</div>
+        <div class="tr-n">5<sub>社</sub></div>
+        <div class="tr-stats">
+          <div><div class="tr-sv">10</div><div class="tr-sl">アポ</div></div>
+          <div><div class="tr-sv">7</div><div class="tr-sl">商談</div></div>
+          <div><div class="tr-sv">2</div><div class="tr-sl">成約</div></div>
+        </div>
+      </div>
+      <div class="trend-card">
+        <div class="tr-mo">先月（5月）</div>
+        <div class="tr-n">8<sub>社</sub></div>
+        <div class="tr-stats">
+          <div><div class="tr-sv">13</div><div class="tr-sl">アポ</div></div>
+          <div><div class="tr-sv">9</div><div class="tr-sl">商談</div></div>
+          <div><div class="tr-sv">3</div><div class="tr-sl">成約</div></div>
+        </div>
+      </div>
+      <div class="trend-card now">
+        <div class="tr-mo now">今月（6月）— 月中</div>
+        <div class="tr-n">0<sub>社</sub></div>
+        <div class="tr-none">新規掲載スタート企業なし</div>
+      </div>
+      <div class="trend-card tl">
+        <div class="tl-area">
+          <div class="tl-lbl">テレマリスト</div>
+          <a href="#" class="tl-link" onclick="return false">リストはこちら →</a>
+          <div class="tl-note">※ リンクは後で設定してください</div>
+        </div>
+      </div>
     </div>
   </div>
+
+</div><!-- /tab-long -->
+<div id="tab-short" class="tab-pane">
+  <div class="wip">短期インターンタブ — 準備中</div>
 </div>
+</div><!-- /main -->
 
 <script>
-function switchTab(tab, el) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById(tab).classList.add('active');
-}
-
-const companies = [
-  { name:"株式会社YUMEA", url:"https://aoharu-intern.com/companies/f25646c8-8fc4-43a4-a763-387eb23c68f4/jobs/c2a15c6c-2667-4e0d-82ad-0d48f770b73b", industry:"サービス", hours:"週2日以上", area:"関東", rank:"C", status:"掲載中" },
-  { name:"和会", url:"https://aoharu-intern.com/companies/8a543afd-19b5-4002-9d04-b115cb1109c1/jobs/d4801cb6-f2ca-48ce-8953-c3bbe11f75f0", industry:"その他", hours:"週1日", area:"千葉", rank:"A", status:"掲載中" },
-  { name:"change&base合同会社", url:"https://aoharu-intern.com/companies/cf54f93a-42e7-43ee-be9f-c26dda4b29b8/jobs/290ddde2-a200-4696-9bfd-7c40a911ce30", industry:"教育・人材", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社WILLCO", url:"https://aoharu-intern.com/companies/d4f6ce48-d273-4f49-8a9a-865224c27e18/jobs/ce17dc2b-a0a6-4184-9448-029c90b6f570", industry:"教育・人材", hours:"週3日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社エコライフ", url:"https://aoharu-intern.com/companies/ec6b0940-8a89-4c97-8710-20462193663d/jobs/c3d19102-58fb-4360-a5ff-944274a7025b", industry:"サービス", hours:"週2日以上", area:"神奈川", rank:"A", status:"掲載中" },
-  { name:"株式会社アガルートセールスパートナーズ", url:"https://aoharu-intern.com/companies/3241664b-56b1-417f-bf4a-f79026eaf086/jobs/0efe78cd-9b6a-4f49-a417-af7685f41ee2", industry:"コンサル", hours:"週2日以上", area:"東京", rank:"A", status:"掲載中" },
-  { name:"株式会社FULL HOUSE", url:"https://aoharu-intern.com/companies/7b583e0b-2bd4-4b34-a64d-c78ece35400c/jobs/93fa38c3-404f-416f-a870-7dba57c8e326", industry:"IT・Web", hours:"週2日以上", area:"東京", rank:"B", status:"商談中" },
-  { name:"VOIQ株式会社", url:"https://aoharu-intern.com/companies/0238fd5a-f0dd-49e3-b321-ef7396f52e14/jobs/a33a644c-02d0-47d7-845a-798c456ef527", industry:"コンサル", hours:"週3日以上", area:"東京", rank:"B", status:"商談中" },
-  { name:"株式会社SCORE X", url:"https://aoharu-intern.com/companies/09b0c6dd-b9da-4d76-93e8-c6e5e2db6183/jobs/86b3ce81-107a-4149-8dfb-44e8fa446d84", industry:"IT・Web", hours:"週2日以上", area:"東京", rank:"B", status:"掲載中" },
-  { name:"株式会社ハイボール", url:"https://aoharu-intern.com/companies/c80516d6-7953-4667-8c8c-dfe02d9bddb0/jobs/5e97b195-f2c9-4d30-97f2-d9968d874bf6", industry:"広告・マーケ", hours:"週3日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"Don Richy株式会社", url:"https://aoharu-intern.com/companies/9189c82b-5c5b-4014-99f1-0b2b5c33e424/jobs/0204d5ba-4ee9-46a7-a6dc-30673b35b096", industry:"サービス", hours:"週2日以上", area:"東京", rank:"新規", status:"掲載中" },
-  { name:"株式会社一戸ホーム", url:"https://aoharu-intern.com/companies/2a4d9b0c-ab5f-4bcd-9da9-15295d9beef6/jobs/4583b5b5-c7dc-4077-b182-ac8ca53276ef", industry:"その他", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"forest株式会社", url:"https://aoharu-intern.com/companies/6855332d-70fc-4635-8dbc-3f370cfa120c/jobs/c9974c7d-c652-4517-9e3b-b278ec99d6c8", industry:"コンサル", hours:"週3日以上", area:"東京", rank:"B", status:"成約済" },
-  { name:"株式会社Linkry", url:"https://aoharu-intern.com/companies/45b2c4b4-a36a-4d91-84a9-f11b1008b7aa/jobs/c6138c07-f9d7-45f6-9475-12d4067967c2", industry:"IT・Web", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社helix", url:"https://aoharu-intern.com/companies/350e96fe-3282-414c-bc5e-15b2c117f408/jobs/e227f154-3cfc-4f51-9e54-d1969b1890a5", industry:"広告・マーケ", hours:"週3日以上", area:"東京", rank:"B", status:"成約済" },
-  { name:"株式会社TWOSTONE&Sons", url:"https://aoharu-intern.com/companies/71915e95-6fb6-4bc6-9295-653ac8d3c79c/jobs/3c16d4f0-0ee2-4999-8aa7-b277223417af", industry:"IT・Web", hours:"週3日以上", area:"東京", rank:"B", status:"商談中" },
-  { name:"株式会社L&E Group", url:"https://aoharu-intern.com/companies/e8033fc6-d3b0-42de-8118-0a4f756a6cd8/jobs/129f1251-6c4d-4350-82b7-b25956b4c6c9", industry:"教育・人材", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社メディアエイド", url:"https://aoharu-intern.com/companies/74e8b2d5-8bc0-4598-b3d9-e91515129541/jobs/fa3fdbc7-5dc0-47aa-a4a7-c4eddff7c558", industry:"広告・マーケ", hours:"週2日以上", area:"東京", rank:"B", status:"商談中" },
-  { name:"株式会社CACTAS", url:"https://aoharu-intern.com/companies/7ebe9ea4-b230-4927-85f2-527ae6f16a18/jobs/3ac6c3ab-7599-4a9f-845b-c2eabb70a7b6", industry:"コンサル", hours:"週3日以上", area:"東京", rank:"B", status:"商談中" },
-  { name:"株式会社リラクション", url:"https://aoharu-intern.com/companies/46100bda-1900-41fd-9b41-18a7efee43c7/jobs/31ff575b-5bc3-414e-9dd8-98a75bdb3f22", industry:"サービス", hours:"週3日以上", area:"東京", rank:"B", status:"成約済" },
-  { name:"株式会社ジェイック", url:"https://aoharu-intern.com/companies/548b83da-5e8d-479c-b218-1dbc61fa3914/jobs/b816547e-2486-46c8-ad12-5bfce3694d8d", industry:"教育・人材", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社WorCry", url:"https://aoharu-intern.com/companies/a6e86024-7da3-4141-9b2d-fc0f92e3b738/jobs/00950ef2-f312-4598-96d3-d543c7e6ff7f", industry:"教育・人材", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"PLAINER株式会社", url:"https://aoharu-intern.com/companies/b2e631f7-71ce-4d30-9056-e2d864693c4f/jobs/17566a3d-abd2-492e-8554-8e5b7249b864", industry:"IT・Web", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社TOMAP", url:"https://aoharu-intern.com/companies/5fc464f0-b686-4291-88ae-3019777739ff/jobs/8f0d61e5-f6eb-477c-82f8-8d9e52a1b053", industry:"コンサル", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社IPPO", url:"https://aoharu-intern.com/companies/f11f76f7-ed65-4906-9e99-6cfe29e28df6/jobs/51cd33ff-ef2d-476d-8a29-d17cd2c174d6", industry:"教育・人材", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社Kakedas", url:"https://aoharu-intern.com/companies/aad1fee2-0412-4965-be69-b29ffa271d3f/jobs/32a201af-236d-4c8f-8383-eb412e1d25a9", industry:"IT・Web", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"Rebozu合同会社", url:"https://aoharu-intern.com/companies/b4fbe35b-703f-43dc-8a60-cdfe99a1d8ef/jobs/8feb3be8-ab28-4416-a520-cacfa647ff20", industry:"その他", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社SKY'S", url:"https://aoharu-intern.com/companies/3f9f7331-83a6-4edc-b2ed-8f1aec1424fc/jobs/1c0dc50a-5468-4243-86e3-511f648657f7", industry:"サービス", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"日本スキルプロバイダ株式会社", url:"https://aoharu-intern.com/companies/e370457a-114f-48c7-9e73-67b3e10c618f/jobs/486806a3-3e78-4af6-bbfa-074c9bf2a8ab", industry:"教育・人材", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社upceed", url:"https://aoharu-intern.com/companies/a3e2ac1d-84d5-477d-9757-80611c18590f/jobs/e6cfe76e-6bd7-4fce-8699-6ebf39fd7bf3", industry:"IT・Web", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社MaVie", url:"https://aoharu-intern.com/companies/0b982513-81cb-4361-9e0c-2db3c066a2a1/jobs/c77e1a3b-4567-4ce5-b9fc-c2b08edcf386", industry:"サービス", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社UNLIMIT", url:"https://aoharu-intern.com/companies/f85bf177-8e85-4b64-a4af-366633ecd407/jobs/a431ddbd-14ac-4d68-9aca-35f2c2a1ebb3", industry:"その他", hours:"週2日以上", area:"東京", rank:"C", status:"成約済" },
-  { name:"株式会社デジタルトレンズ", url:"https://aoharu-intern.com/companies/2e5b4da7-885b-4d75-9288-7c6b52067783/jobs/84697ffc-d3ca-4599-aab6-5029fae3a450", industry:"IT・Web", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"Acroforce株式会社", url:"https://aoharu-intern.com/companies/055c791d-c19f-4f38-9a37-12df20af85c7/jobs/46ed3dda-41cd-4db7-bf13-00d700620038", industry:"コンサル", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"LSIGN POST株式会社", url:"https://aoharu-intern.com/companies/00aba706-32ab-4981-8959-79657a9a1e9a/jobs/8750233a-ac28-4746-ab19-5b9d3e831e35", industry:"その他", hours:"週2日以上", area:"東京", rank:"新規", status:"掲載中" },
-  { name:"株式会社パワー・ファーム", url:"https://aoharu-intern.com/companies/c7a86843-7441-44d9-b16c-bb4a637c0d32/jobs/e305677d-d45b-4b3b-9463-603afe8240eb", industry:"その他", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社ティータイム", url:"https://aoharu-intern.com/companies/41e73973-8291-40c7-be5f-afe1d886871a/jobs/064e5133-891a-4e2e-b6d4-834824b9abcc", industry:"サービス", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社最強", url:"https://aoharu-intern.com/companies/4d7e913c-6221-418e-999a-40c22aeb53dd/jobs/04c37b2a-4e28-449c-a9cf-f54ec8781c66", industry:"その他", hours:"週2日以上", area:"東京", rank:"C", status:"掲載中" },
-  { name:"株式会社Influencer Tech", url:"https://aoharu-intern.com/companies/88081895-c679-43bb-9442-948757afa9a5/jobs/9e947955-c743-4313-9b79-18e0a30aa6d8", industry:"広告・マーケ", hours:"週2日以上", area:"東京", rank:"新規", status:"掲載中" },
+const BASE = 'https://aoharu-intern.com/companies/';
+const cos = [
+  {r:'A',n:'株式会社helix',cid:'350e96fe-3282-414c-bc5e-15b2c117f408',jid:'e227f154-3cfc-4f51-9e54-d1969b1890a5',ind:'広告・マーケ',jobs:'1件',hrs:'週2日以上',rem:'一部リモート可',area:'東京都',sets:5},
+  {r:'A',n:'forest株式会社',cid:'6855332d-70fc-4635-8dbc-3f370cfa120c',jid:'c9974c7d-c652-4517-9e3b-b278ec99d6c8',ind:'コンサル',jobs:'4件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:3},
+  {r:'A',n:'株式会社リラクション',cid:'46100bda-1900-41fd-9b41-18a7efee43c7',jid:'31ff575b-5bc3-414e-9dd8-98a75bdb3f22',ind:'サービス',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:5},
+  {r:'A',n:'株式会社TWOSTONE&Sons',cid:'71915e95-6fb6-4bc6-9295-653ac8d3c79c',jid:'3c16d4f0-0ee2-4999-8aa7-b277223417af',ind:'教育・人材',jobs:'3件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:7},
+  {r:'A',n:'change&base合同会社',cid:'cf54f93a-42e7-43ee-be9f-c26dda4b29b8',jid:'290ddde2-a200-4696-9bfd-7c40a911ce30',ind:'教育・人材',jobs:'2件',hrs:'週2日以上',rem:'フルリモート',area:'東京都',sets:2},
+  {r:'A',n:'PLAINER株式会社',cid:'b2e631f7-71ce-4d30-9056-e2d864693c4f',jid:'17566a3d-abd2-492e-8554-8e5b7249b864',ind:'IT・Web',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:8},
+  {r:'A',n:'株式会社メディアエイド',cid:'74e8b2d5-8bc0-4598-b3d9-e91515129541',jid:'fa3fdbc7-5dc0-47aa-a4a7-c4eddff7c558',ind:'IT・Web',jobs:'4件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:7},
+  {r:'A',n:'株式会社CACTAS',cid:'7ebe9ea4-b230-4927-85f2-527ae6f16a18',jid:'3ac6c3ab-7599-4a9f-845b-c2eabb70a7b6',ind:'広告・マーケ',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:1},
+  {r:'A',n:'株式会社ジェイック',cid:'548b83da-5e8d-479c-b218-1dbc61fa3914',jid:'b816547e-2486-46c8-ad12-5bfce3694d8d',ind:'教育・人材',jobs:'1件',hrs:'週2日以上',rem:'一部リモート可',area:'東京都',sets:2},
+  {r:'B',n:'株式会社WILLCO',cid:'d4f6ce48-d273-4f49-8a9a-865224c27e18',jid:'ce17dc2b-a0a6-4184-9448-029c90b6f570',ind:'教育・人材',jobs:'1件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:2},
+  {r:'B',n:'VOIQ株式会社',cid:'0238fd5a-f0dd-49e3-b321-ef7396f52e14',jid:'a33a644c-02d0-47d7-845a-798c456ef527',ind:'コンサル',jobs:'1件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:0},
+  {r:'B',n:'株式会社SCORE X',cid:'09b0c6dd-b9da-4d76-93e8-c6e5e2db6183',jid:'86b3ce81-107a-4149-8dfb-44e8fa446d84',ind:'IT・Web',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:0},
+  {r:'B',n:'株式会社ハイボール',cid:'c80516d6-7953-4667-8c8c-dfe02d9bddb0',jid:'5e97b195-f2c9-4d30-97f2-d9968d874bf6',ind:'広告・マーケ',jobs:'1件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:1},
+  {r:'A',n:'Don Richy株式会社',cid:'9189c82b-5c5b-4014-99f1-0b2b5c33e424',jid:'0204d5ba-4ee9-46a7-a6dc-30673b35b096',ind:'サービス',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:1},
+  {r:'A',n:'株式会社アガルートSP',cid:'3241664b-56b1-417f-bf4a-f79026eaf086',jid:'0efe78cd-9b6a-4f49-a417-af7685f41ee2',ind:'コンサル',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:0},
+  {r:'B',n:'株式会社FULL HOUSE',cid:'7b583e0b-2bd4-4b34-a64d-c78ece35400c',jid:'93fa38c3-404f-416f-a870-7dba57c8e326',ind:'IT・Web',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:0},
+  {r:'B',n:'株式会社Linkry',cid:'45b2c4b4-a36a-4d91-84a9-f11b1008b7aa',jid:'c6138c07-f9d7-45f6-9475-12d4067967c2',ind:'コンサル',jobs:'1件',hrs:'週2日以上',rem:'フルリモート',area:'東京都',sets:0},
+  {r:'B',n:'Rebozu合同会社',cid:'b4fbe35b-703f-43dc-8a60-cdfe99a1d8ef',jid:'8feb3be8-ab28-4416-a520-cacfa647ff20',ind:'コンサル',jobs:'2件',hrs:'週3日以上',rem:'一部リモート可',area:'大阪/東京',sets:1},
+  {r:'A',n:'LSIGN POST株式会社',cid:'00aba706-32ab-4981-8959-79657a9a1e9a',jid:'8750233a-ac28-4746-ab19-5b9d3e831e35',ind:'教育・人材',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:4},
+  {r:'C',n:'株式会社YUMEA',cid:'f25646c8-8fc4-43a4-a763-387eb23c68f4',jid:'c2a15c6c-2667-4e0d-82ad-0d48f770b73b',ind:'サービス',jobs:'5件',hrs:'週2日以上',rem:'原則出社',area:'関東各地',sets:3},
+  {r:'A',n:'和会',cid:'8a543afd-19b5-4002-9d04-b115cb1109c1',jid:'d4801cb6-f2ca-48ce-8953-c3bbe11f75f0',ind:'その他',jobs:'1件',hrs:'週1日',rem:'フルリモート',area:'千葉県',sets:0},
+  {r:'A',n:'株式会社エコライフ',cid:'ec6b0940-8a89-4c97-8710-20462193663d',jid:'c3d19102-58fb-4360-a5ff-944274a7025b',ind:'サービス',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'神奈川県',sets:0},
+  {r:'C',n:'株式会社一戸ホーム',cid:'2a4d9b0c-ab5f-4bcd-9da9-15295d9beef6',jid:'4583b5b5-c7dc-4077-b182-ac8ca53276ef',ind:'その他',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:0},
+  {r:'C',n:'株式会社L&E Group',cid:'e8033fc6-d3b0-42de-8118-0a4f756a6cd8',jid:'129f1251-6c4d-4350-82b7-b25956b4c6c9',ind:'広告・マーケ',jobs:'1件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:1},
+  {r:'C',n:'株式会社WorCry',cid:'a6e86024-7da3-4141-9b2d-fc0f92e3b738',jid:'00950ef2-f312-4598-96d3-d543c7e6ff7f',ind:'教育・人材',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:0},
+  {r:'C',n:'株式会社TOMAP',cid:'5fc464f0-b686-4291-88ae-3019777739ff',jid:'8f0d61e5-f6eb-477c-82f8-8d9e52a1b053',ind:'教育・人材',jobs:'1件',hrs:'週3日以上',rem:'一部リモート可',area:'東京都',sets:0},
+  {r:'C',n:'株式会社IPPO',cid:'f11f76f7-ed65-4906-9e99-6cfe29e28df6',jid:'51cd33ff-ef2d-476d-8a29-d17cd2c174d6',ind:'サービス',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:2},
+  {r:'C',n:'株式会社Kakedas',cid:'aad1fee2-0412-4965-be69-b29ffa271d3f',jid:'32a201af-236d-4c8f-8383-eb412e1d25a9',ind:'IT・Web',jobs:'1件',hrs:'週2日以上',rem:'一部リモート可',area:'東京都',sets:1},
+  {r:'C',n:"株式会社SKY'S",cid:'3f9f7331-83a6-4edc-b2ed-8f1aec1424fc',jid:'1c0dc50a-5468-4243-86e3-511f648657f7',ind:'IT・Web',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'愛知県',sets:0},
+  {r:'C',n:'日本スキルプロバイダ',cid:'e370457a-114f-48c7-9e73-67b3e10c618f',jid:'486806a3-3e78-4af6-bbfa-074c9bf2a8ab',ind:'コンサル',jobs:'3件',hrs:'週1日',rem:'フルリモート',area:'千葉県',sets:0},
+  {r:'C',n:'株式会社upceed',cid:'a3e2ac1d-84d5-477d-9757-80611c18590f',jid:'e6cfe76e-6bd7-4fce-8699-6ebf39fd7bf3',ind:'広告・マーケ',jobs:'1件',hrs:'週3日以上',rem:'一部リモート可',area:'東京都',sets:1},
+  {r:'C',n:'株式会社MaVie',cid:'0b982513-81cb-4361-9e0c-2db3c066a2a1',jid:'c77e1a3b-4567-4ce5-b9fc-c2b08edcf386',ind:'コンサル',jobs:'2件',hrs:'週1日',rem:'原則出社',area:'東京都',sets:2},
+  {r:'C',n:'株式会社UNLIMIT',cid:'f85bf177-8e85-4b64-a4af-366633ecd407',jid:'a431ddbd-14ac-4d68-9aca-35f2c2a1ebb3',ind:'教育・人材',jobs:'1件',hrs:'週2日以上',rem:'一部リモート可',area:'東京都',sets:0},
+  {r:'C',n:'株式会社デジタルトレンズ',cid:'2e5b4da7-885b-4d75-9288-7c6b52067783',jid:'84697ffc-d3ca-4599-aab6-5029fae3a450',ind:'広告・マーケ',jobs:'1件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:2},
+  {r:'C',n:'Acroforce株式会社',cid:'055c791d-c19f-4f38-9a37-12df20af85c7',jid:'46ed3dda-41cd-4db7-bf13-00d700620038',ind:'教育・人材',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:4},
+  {r:'C',n:'株式会社パワー・ファーム',cid:'c7a86843-7441-44d9-b16c-bb4a637c0d32',jid:'e305677d-d45b-4b3b-9463-603afe8240eb',ind:'その他',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:1},
+  {r:'C',n:'株式会社ティータイム',cid:'41e73973-8291-40c7-be5f-afe1d886871a',jid:'064e5133-891a-4e2e-b6d4-834824b9abcc',ind:'教育・人材',jobs:'2件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:1},
+  {r:'C',n:'株式会社最強',cid:'4d7e913c-6221-418e-999a-40c22aeb53dd',jid:'04c37b2a-4e28-449c-a9cf-f54ec8781c66',ind:'サービス',jobs:'2件',hrs:'週3日以上',rem:'原則出社',area:'大阪/東京',sets:1},
+  {r:'C',n:'株式会社Influencer Tech',cid:'88081895-c679-43bb-9442-948757afa9a5',jid:'9e947955-c743-4313-9b79-18e0a30aa6d8',ind:'広告・マーケ',jobs:'1件',hrs:'週2日以上',rem:'一部リモート可',area:'東京都',sets:3},
 ];
-
-function renderTable(data) {
-  document.getElementById('co-tbody').innerHTML = data.map(c => `
+let rf='all';
+function renderCo(){
+  const f = cos.filter(c=>(rf==='all'||c.r===rf));
+  document.getElementById('co-cnt').textContent = f.length+'社 表示中';
+  document.getElementById('co-body').innerHTML = f.map(c=>`
     <tr>
-      <td><span class="badge ${c.rank}">${c.rank}</span></td>
-      <td><a class="co-link" href="${c.url}" target="_blank">${c.name}</a></td>
-      <td>${c.industry}</td>
-      <td>${c.hours}</td>
-      <td>${c.area}</td>
-      <td><span class="badge ${c.status}">${c.status}</span></td>
-    </tr>
-  `).join('');
-  document.getElementById('co-count').textContent = `${data.length}社 表示中`;
+      <td><span class="rk rk-${c.r}">${c.r}</span></td>
+      <td><a class="co-link" href="${BASE}${c.cid}/jobs/${c.jid}" target="_blank">${c.n}</a></td>
+      <td>${c.ind}</td><td>${c.jobs}</td><td>${c.hrs}</td><td>${c.rem}</td><td>${c.area}</td>
+      <td style="font-size:14px;font-weight:700;color:${c.sets>0?'var(--nv)':'var(--faint)'}">${c.sets>0?c.sets+'名':'—'}</td>
+    </tr>`).join('');
 }
-
-function filterTable() {
-  const r = document.getElementById('f-rank').value;
-  const s = document.getElementById('f-status').value;
-  const i = document.getElementById('f-industry').value;
-  renderTable(companies.filter(c =>
-    (!r || c.rank === r) && (!s || c.status === s) && (!i || c.industry === i)
-  ));
+function ft(btn,type,val){
+  btn.closest('.fg').querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  if(type==='r') rf=val;
+  renderCo();
 }
+function switchTab(id,btn){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('tab-'+id).classList.add('on');
+}
+renderCo();
 
-renderTable(companies);
+// 在籍月 動的計算
+(function() {
+  const now = new Date();
+  document.querySelectorAll('.tenure[data-start]').forEach(td => {
+    const start = new Date(td.dataset.start);
+    const diffMs = now - start;
+    if (diffMs < 0) { td.textContent = '未入社'; return; }
+    const days = Math.floor(diffMs / 86400000);
+    const months = Math.floor(days / 30.44);
+    const rem = days % 30;
+    if (months === 0) {
+      td.textContent = days + '日目';
+    } else {
+      td.innerHTML = '<strong style="color:var(--or)">' + months + 'ヶ月</strong>' + (rem > 0 ? ' ' + rem + '日' : '');
+    }
+  });
+})();
 </script>
 </body>
 </html>
