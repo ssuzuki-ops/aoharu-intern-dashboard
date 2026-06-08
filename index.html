@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>AOHARUã‚¤ãƒ³ã‚¿ãƒ¼ãƒ³ ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰</title>
+<title>AOHARUインターン ダッシュボード</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* â”€â”€â”€ HEADER â”€â”€â”€ */
+/* ─── HEADER ─── */
 .hdr {
   background: var(--nv2);
   background-image: radial-gradient(ellipse at 80% 50%, rgba(41,171,226,.12) 0%, transparent 60%),
@@ -78,7 +78,7 @@ body {
 }
 .hdr-date { font-size: 12px; color: rgba(255,255,255,.3); font-weight: 500; }
 
-/* â”€â”€â”€ TABS â”€â”€â”€ */
+/* ─── TABS ─── */
 .tabs {
   background: var(--nv2);
   padding: 0 36px;
@@ -99,17 +99,17 @@ body {
 .tab-btn.on { color: #fff; border-bottom-color: var(--or); }
 .tab-btn:hover:not(.on) { color: rgba(255,255,255,.6); }
 
-/* â”€â”€â”€ MAIN â”€â”€â”€ */
+/* ─── MAIN ─── */
 .main { max-width: 1440px; margin: 0 auto; padding: 32px 36px; }
 
-/* â”€â”€â”€ SECTION â”€â”€â”€ */
+/* ─── SECTION ─── */
 .sec { margin-bottom: 40px; }
 .sec-hd { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
 .sec-title { font-size: 13px; font-weight: 700; color: var(--nv); letter-spacing: .4px; text-transform: uppercase; }
 .sec-line { flex: 1; height: 1px; background: var(--border); }
 .sec-sub { font-size: 12px; color: var(--faint); font-weight: 500; }
 
-/* â”€â”€â”€ KPI CARDS â”€â”€â”€ */
+/* ─── KPI CARDS ─── */
 .kpi-row { display: grid; grid-template-columns: repeat(6,1fr); gap: 16px; }
 .kpi {
   background: var(--card);
@@ -169,7 +169,7 @@ body {
 .kpi-badge.pct { background: rgba(124,92,252,.1); color: #5B21B6; }
 .kpi-sub { font-size: 11px; color: var(--faint); margin-top: 8px; font-weight: 500; }
 
-/* â”€â”€â”€ FUNNEL â”€â”€â”€ */
+/* ─── FUNNEL ─── */
 .funnel {
   background: var(--nv2);
   background-image: radial-gradient(ellipse at 10% 50%, rgba(41,171,226,.1) 0%, transparent 50%),
@@ -210,7 +210,7 @@ body {
 .fn-rate.ng { background: rgba(242,61,90,.15); color: $FCA5A5; }
 .fn-tgt { font-size: 10px; color: rgba(255,255,255,.25); margin-top: 4px; letter-spacing: .2px; }
 
-/* â”€â”€â”€ EVENT CARDS â”€â”€â”€ */
+/* ─── EVENT CARDS ─── */
 .ev-block { margin-bottom: 20px; }
 .ev-hd { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
 .ev-date { font-size: 13px; font-weight: 700; color: var(--nv); }
@@ -241,7 +241,7 @@ body {
 .ev-st.done { color: var(--faint); }
 .ev-st.live { color: var(--or); }
 
-/* â”€â”€â”€ COMPANY TABLE â”€â”€â”€ */
+/* ─── COMPANY TABLE ─── */
 .filter-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
 .fg { display: flex; align-items: center; gap: 6px; }
 .fg-label { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .4px; }
@@ -307,13 +307,13 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
   white-space: nowrap;
   letter-spacing: .3px;
 }
-.st-æŽ²è¼‰ä¸­ { background: #EFF6FF; color: #1D4ED8; }
-.st-å•†è«‡ä¸­ { background: #FFFBEB; color: #B45309; }
-.st-é¸è€ƒä¸­ { background: #F5F3FF; color: #6D28D9; }
-.st-æˆç´„æ¸ˆ { background: #ECFDF5; color: #065F46; }
-.st-å¤±æ³¨ { background: #FEF2F2; color: #991B1B; }
+.st-掲載中 { background: #EFF6FF; color: #1D4ED8; }
+.st-商談中 { background: #FFFBEB; color: #B45309; }
+.st-選考中 { background: #F5F3FF; color: #6D28D9; }
+.st-成約済 { background: #ECFDF5; color: #065F46; }
+.st-失注 { background: #FEF2F2; color: #991B1B; }
 
-/* â”€â”€â”€ PIPELINE â”€â”€â”€ */
+/* ─── PIPELINE ─── */
 .pipe-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; }
 .pipe-card {
   background: var(--card);
@@ -343,7 +343,7 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
   font-weight: 500;
 }
 
-/* â”€â”€â”€ LOG TABLE â”€â”€â”€ */
+/* ─── LOG TABLE ─── */
 .log-wrap { background: var(--card); border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow); }
 .log-tbl { width: 100%; border-collapse: collapse; }
 .log-tbl th {
@@ -360,7 +360,7 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
 .log-tbl tr:last-child td { border-bottom: none; }
 .log-tbl tbody tr:hover { background: #F7F9FF; }
 
-/* â”€â”€â”€ STAFF TABLE â”€â”€â”€ */
+/* ─── STAFF TABLE ─── */
 .staff-wrap { background: var(--card); border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow); }
 .staff-tbl { width: 100%; border-collapse: collapse; }
 .staff-tbl th {
@@ -380,7 +380,7 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
 .sta-go { color: var(--or); font-weight: 800; font-size: 11px; letter-spacing: .3px; }
 .sta-adj { color: var(--faint); font-weight: 700; font-size: 11px; }
 
-/* â”€â”€â”€ TREND â”€â”€â”€ */
+/* ─── TREND ─── */
 .trend-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
 .trend-card {
   background: var(--card);
@@ -420,7 +420,7 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
 .tl-link:hover { text-decoration: underline; }
 .tl-note { font-size: 11px; color: rgba(255,255,255,.2); margin-top: 10px; font-weight: 500; }
 
-/* â”€â”€â”€ MISC â”€â”€â”€ */
+/* ─── MISC ─── */
 .tab-pane { display: none; }
 .tab-pane.on { display: block; }
 .wip { text-align: center; padding: 100px; color: var(--faint); font-size: 14px; font-weight: 600; }
@@ -431,9 +431,9 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
 <!-- HEADER -->
 <div class="hdr">
   <div class="hdr-logo">
-    <em>AOHARU</em>ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ³
+    <em>AOHARU</em>インターン
     <div class="hdr-dot"></div>
-    <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;">ä¼æ¥­ç®¡ç†</span>
+    <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase;">企業管理</span>
   </div>
   <div class="hdr-right">
     <span class="badge-sample">Sample</span>
@@ -443,8 +443,8 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
 
 <!-- TABS -->
 <div class="tabs">
-  <div class="tab-btn on" onclick="switchTab('long',this)">é•·æœŸã‚¤ãƒ³ã‚¿ãƒ¼ãƒ³</div>
-  <div class="tab-btn" onclick="switchTab('short',this)">çŸ­æœŸã‚¤ãƒ³ã‚¿ãƒ¼ãƒ³</div>
+  <div class="tab-btn on" onclick="switchTab('long',this)">長期インターン</div>
+  <div class="tab-btn" onclick="switchTab('short',this)">短期インターン</div>
 </div>
 
 <div class="main">
@@ -455,167 +455,167 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
     <div class="sec-hd">
       <span class="sec-title">KPI</span>
       <div class="sec-line"></div>
-      <span class="sec-sub">6æœˆ å®Ÿç¸¾</span>
+      <span class="sec-sub">6月 実績</span>
     </div>
     <div class="kpi-row">
       <div class="kpi or">
         <div class="kpi-accent"></div><div class="kpi-glow"></div>
-        <div class="kpi-lbl">æŽ²è¼‰ä¼æ¥­æ•°</div>
-        <div class="kpi-val">39<sub>ç¤¾</sub></div>
-        <div class="kpi-badge up">å…ˆæœˆæ¯” +3ç¤¾</div>
+        <div class="kpi-lbl">掲載企業数</div>
+        <div class="kpi-val">39<sub>社</sub></div>
+        <div class="kpi-badge up">先月比 +3社</div>
       </div>
       <div class="kpi bl">
         <div class="kpi-accent"></div><div class="kpi-glow"></div>
-        <div class="kpi-lbl">æŽ²è¼‰æ¡ˆä»¶æ•°</div>
-        <div class="kpi-val">59<sub>ä»¶</sub></div>
-        <div class="kpi-sub">æ±‚äºº59ä»¶</div>
+        <div class="kpi-lbl">掲載案件数</div>
+        <div class="kpi-val">59<sub>件</sub></div>
+        <div class="kpi-sub">求人59件</div>
       </div>
       <div class="kpi gn">
         <div class="kpi-accent"></div><div class="kpi-glow"></div>
-        <div class="kpi-lbl">ã‚¢ãƒã‚¤ãƒ³ãƒˆæ•°</div>
-        <div class="kpi-val" style="font-size:22px;letter-spacing:-.5px;color:var(--muted);">é›†è¨ˆä¸­</div>
-        <div class="kpi-sub">Slacké€£æºå¾Œã«è‡ªå‹•åæ˜ </div>
+        <div class="kpi-lbl">アポイント数</div>
+        <div class="kpi-val" style="font-size:22px;letter-spacing:-.5px;color:var(--muted);">集計中</div>
+        <div class="kpi-sub">Slack連携後に自動反映</div>
       </div>
       <div class="kpi pu">
         <div class="kpi-accent"></div><div class="kpi-glow"></div>
-        <div class="kpi-lbl">å•†è«‡æ•°</div>
-        <div class="kpi-val" style="font-size:22px;letter-spacing:-.5px;color:var(--muted);">é›†è¨ˆä¸­</div>
-        <div class="kpi-sub">Slacké€£æºå¾Œã«è‡ªå‹•åæ˜ </div>
+        <div class="kpi-lbl">商談数</div>
+        <div class="kpi-val" style="font-size:22px;letter-spacing:-.5px;color:var(--muted);">集計中</div>
+        <div class="kpi-sub">Slack連携後に自動反映</div>
       </div>
       <div class="kpi rd">
         <div class="kpi-accent"></div><div class="kpi-glow"></div>
-        <div class="kpi-lbl">æˆç´„æ•°</div>
+        <div class="kpi-lbl">成約数</div>
         <div class="kpi-val">0</div>
-        <div class="kpi-sub">6æœˆå®Ÿç¸¾ï¼ˆæ±ºå®šå ±å‘Šãƒ™ãƒ¼ã‚¹ï¼‰</div>
+        <div class="kpi-sub">6月実績（決定報告ベース）</div>
       </div>
       <div class="kpi am">
         <div class="kpi-accent"></div><div class="kpi-glow"></div>
-        <div class="kpi-lbl">å£²ä¸Šï¼ˆä»Šæœˆï¼‰</div>
-        <div class="kpi-val">0<sub>ä¸‡</sub></div>
-        <div class="kpi-sub">6æœˆæ±ºå®šãªã—ï¼ˆ#08-æ±ºå®šå ±å‘Šãƒ™ãƒ¼ã‚¹ï¼‰</div>
+        <div class="kpi-lbl">売上（今月）</div>
+        <div class="kpi-val">0<sub>万</sub></div>
+        <div class="kpi-sub">6月決定なし（#08-決定報告ベース）</div>
       </div>
     </div>
   </div>
 
-  <!-- å­¦ç”Ÿãƒ•ã‚¡ãƒãƒ« -->
+  <!-- 学生ファネル -->
   <div class="sec">
     <div class="sec-hd">
-      <span class="sec-title">å­¦ç”Ÿãƒ•ã‚¡ãƒãƒ« â€” ã‚¹ãƒ†ãƒƒãƒ—çŽ‡</span>
+      <span class="sec-title">学生ファネル — ステップ率</span>
       <div class="sec-line"></div>
-      <span class="sec-sub">ç´¯è¨ˆ 2025.10ã€œ</span>
+      <span class="sec-sub">累計 2025.10〜</span>
     </div>
     <div class="funnel">
       <div class="fn-grid">
         <div class="fn-item">
-          <div class="fn-num">3,207<sub>å</sub></div>
-          <div class="fn-label">LINEç™»éŒ²</div>
-          <div class="fn-arrow">â€º</div>
+          <div class="fn-num">3,207<sub>名</sub></div>
+          <div class="fn-label">LINE登録</div>
+          <div class="fn-arrow">›</div>
         </div>
         <div class="fn-item">
-          <div class="fn-num">2,241<sub>å</sub></div>
-          <div class="fn-label">PDå®Œäº†</div>
+          <div class="fn-num">2,241<sub>名</sub></div>
+          <div class="fn-label">PD完了</div>
           <div class="fn-rate ok">70%</div>
-          <div class="fn-tgt">ç›®æ¨™60% â€” é”æˆ</div>
-          <div class="fn-arrow">â€º</div>
+          <div class="fn-tgt">目標60% — 達成</div>
+          <div class="fn-arrow">›</div>
         </div>
         <div class="fn-item">
-          <div class="fn-num">356<sub>å</sub></div>
-          <div class="fn-label">é¢è«‡äºˆç´„</div>
+          <div class="fn-num">356<sub>名</sub></div>
+          <div class="fn-label">面談予約</div>
           <div class="fn-rate ng">16%</div>
-          <div class="fn-tgt">ç›®æ¨™25% â€” æœªé”</div>
-          <div class="fn-arrow">â€º</div>
+          <div class="fn-tgt">目標25% — 未達</div>
+          <div class="fn-arrow">›</div>
         </div>
         <div class="fn-item">
-          <div class="fn-num">243<sub>å</sub></div>
-          <div class="fn-label">é¢è«‡å®Ÿæ–½</div>
+          <div class="fn-num">243<sub>名</sub></div>
+          <div class="fn-label">面談実施</div>
           <div class="fn-rate ng">68%</div>
-          <div class="fn-tgt">ç›®æ¨™70% â€” æœªé”</div>
-          <div class="fn-arrow">â€º</div>
+          <div class="fn-tgt">目標70% — 未達</div>
+          <div class="fn-arrow">›</div>
         </div>
         <div class="fn-item">
-          <div class="fn-num">75<sub>å</sub></div>
-          <div class="fn-label">Uã‚»ãƒƒãƒˆ</div>
+          <div class="fn-num">75<sub>名</sub></div>
+          <div class="fn-label">Uセット</div>
           <div class="fn-rate ng">38%</div>
-          <div class="fn-tgt">ç›®æ¨™65% â€” æœªé”</div>
-          <div class="fn-arrow">â€º</div>
+          <div class="fn-tgt">目標65% — 未達</div>
+          <div class="fn-arrow">›</div>
         </div>
         <div class="fn-item">
-          <div class="fn-num">28<sub>å</sub></div>
-          <div class="fn-label">æ±ºå®š</div>
+          <div class="fn-num">28<sub>名</sub></div>
+          <div class="fn-label">決定</div>
           <div class="fn-rate ok">37%</div>
-          <div class="fn-tgt">ç›®æ¨™35% â€” é”æˆ</div>
+          <div class="fn-tgt">目標35% — 達成</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ãƒžãƒƒãƒãƒ³ã‚°ã‚¤ãƒ™ãƒ³ãƒˆ -->
+  <!-- マッチングイベント -->
   <div class="sec">
     <div class="sec-hd">
-      <span class="sec-title">ãƒžãƒƒãƒãƒ³ã‚°ã‚¤ãƒ™ãƒ³ãƒˆ</span>
+      <span class="sec-title">マッチングイベント</span>
       <div class="sec-line"></div>
-      <span class="sec-sub">æœˆæ¬¡ ZOOM é–‹å‚¬</span>
+      <span class="sec-sub">月次 ZOOM 開催</span>
     </div>
     <div class="ev-block">
       <div class="ev-hd">
-        <span class="ev-date">5æœˆ27æ—¥ï¼ˆæ°´ï¼‰</span>
-        <span class="ev-pill done">çµ‚äº†</span>
+        <span class="ev-date">5月27日（水）</span>
+        <span class="ev-pill done">終了</span>
       </div>
       <div class="ev-grid">
-        <div class="ev-card done"><div class="ev-co">TWOSTONE&amp;Sons</div><div class="ev-ind">æ•™è‚²ãƒ»äººæ</div><div class="ev-st done">å‚åŠ æ¸ˆ</div></div>
-        <div class="ev-card done"><div class="ev-co">change&amp;base</div><div class="ev-ind">æ•™è‚²ãƒ»äººæ</div><div class="ev-st done">å‚åŠ æ¸ˆ</div></div>
-        <div class="ev-card done"><div class="ev-co">RebozuåˆåŒä¼šç¤¾</div><div class="ev-ind">ã‚³ãƒ³ã‚µãƒ«</div><div class="ev-st done">å‚åŠ æ¸ˆ</div></div>
-        <div class="ev-card done"><div class="ev-co">å’Œä¼š</div><div class="ev-ind">ãã®ä»–</div><div class="ev-st done">å‚åŠ æ¸ˆ</div></div>
-        <div class="ev-card done"><div class="ev-co">ã‚¨ã‚³ãƒ©ã‚¤ãƒ•</div><div class="ev-ind">ã‚µãƒ¼ãƒ“ã‚¹</div><div class="ev-st done">å‚åŠ æ¸ˆ</div></div>
-      </div>
-    </div>
-    <div class="ev-block">
-      <div class="ev-hd">
-        <span class="ev-date">6æœˆ9æ—¥ï¼ˆç«ï¼‰</span>
-        <span class="ev-pill live">é›†å®¢ä¸­</span>
-      </div>
-      <div class="ev-grid">
-        <div class="ev-card live"><div class="ev-co">LSIGN POST</div><div class="ev-ind">æ•™è‚²ãƒ»äººæ</div><div class="ev-st live">å‚åŠ äºˆå®š</div></div>
-        <div class="ev-card live"><div class="ev-co">ã‚¢ã‚¬ãƒ«ãƒ¼ãƒˆSP</div><div class="ev-ind">ã‚³ãƒ³ã‚µãƒ«</div><div class="ev-st live">å‚åŠ äºˆå®š</div></div>
-        <div class="ev-card live"><div class="ev-co">Don Richy</div><div class="ev-ind">ã‚µãƒ¼ãƒ“ã‚¹</div><div class="ev-st live">å‚åŠ äºˆå®š</div></div>
-        <div class="ev-card live"><div class="ev-co">ãƒ¡ãƒ‡ã‚£ã‚¢ã‚¨ã‚¤ãƒ‰</div><div class="ev-ind">ITãƒ»Web</div><div class="ev-st live">å‚åŠ äºˆå®š</div></div>
-        <div class="ev-card live"><div class="ev-co">ã‚¸ã‚§ã‚¤ãƒƒã‚¯</div><div class="ev-ind">æ•™è‚²ãƒ»äººæ</div><div class="ev-st live">å‚åŠ äºˆå®š</div></div>
+        <div class="ev-card done"><div class="ev-co">TWOSTONE&amp;Sons</div><div class="ev-ind">教育・人材</div><div class="ev-st done">参加済</div></div>
+        <div class="ev-card done"><div class="ev-co">change&amp;base</div><div class="ev-ind">教育・人材</div><div class="ev-st done">参加済</div></div>
+        <div class="ev-card done"><div class="ev-co">Rebozu合同会社</div><div class="ev-ind">コンサル</div><div class="ev-st done">参加済</div></div>
+        <div class="ev-card done"><div class="ev-co">和会</div><div class="ev-ind">その他</div><div class="ev-st done">参加済</div></div>
+        <div class="ev-card done"><div class="ev-co">エコライフ</div><div class="ev-ind">サービス</div><div class="ev-st done">参加済</div></div>
       </div>
     </div>
     <div class="ev-block">
       <div class="ev-hd">
-        <span class="ev-date">6æœˆ24æ—¥ï¼ˆæ°´ï¼‰</span>
-        <span class="ev-pill live">é›†å®¢ä¸­</span>
+        <span class="ev-date">6月9日（火）</span>
+        <span class="ev-pill live">集客中</span>
       </div>
       <div class="ev-grid">
-        <div class="ev-card live"><div class="ev-co">ãƒã‚¤ãƒœãƒ¼ãƒ«</div><div class="ev-ind">åºƒå‘Šãƒ»ãƒžãƒ¼ã‚±</div><div class="ev-st live">å‚åŠ äºˆå®š</div></div>
-        <div class="ev-card live"><div class="ev-co">YUMEA</div><div class="ev-ind">ã‚µãƒ¼ãƒ“ã‚¹</div><div class="ev-st live">å‚åŠ äºˆå®š</div></div>
-        <div class="ev-card" style="border-top:3px dashed var(--border);background:#fafbff;"><div class="ev-co" style="color:var(--faint)">+3ç¤¾ é›†å®¢ä¸­</div><div class="ev-ind">ç›®æ¨™5ç¤¾</div><div class="ev-st" style="color:var(--faint)">èª¿æ•´ä¸­</div></div>
+        <div class="ev-card live"><div class="ev-co">LSIGN POST</div><div class="ev-ind">教育・人材</div><div class="ev-st live">参加予定</div></div>
+        <div class="ev-card live"><div class="ev-co">アガルートSP</div><div class="ev-ind">コンサル</div><div class="ev-st live">参加予定</div></div>
+        <div class="ev-card live"><div class="ev-co">Don Richy</div><div class="ev-ind">サービス</div><div class="ev-st live">参加予定</div></div>
+        <div class="ev-card live"><div class="ev-co">メディアエイド</div><div class="ev-ind">IT・Web</div><div class="ev-st live">参加予定</div></div>
+        <div class="ev-card live"><div class="ev-co">ジェイック</div><div class="ev-ind">教育・人材</div><div class="ev-st live">参加予定</div></div>
+      </div>
+    </div>
+    <div class="ev-block">
+      <div class="ev-hd">
+        <span class="ev-date">6月24日（水）</span>
+        <span class="ev-pill live">集客中</span>
+      </div>
+      <div class="ev-grid">
+        <div class="ev-card live"><div class="ev-co">ハイボール</div><div class="ev-ind">広告・マーケ</div><div class="ev-st live">参加予定</div></div>
+        <div class="ev-card live"><div class="ev-co">YUMEA</div><div class="ev-ind">サービス</div><div class="ev-st live">参加予定</div></div>
+        <div class="ev-card" style="border-top:3px dashed var(--border);background:#fafbff;"><div class="ev-co" style="color:var(--faint)">+3社 集客中</div><div class="ev-ind">目標5社</div><div class="ev-st" style="color:var(--faint)">調整中</div></div>
       </div>
     </div>
   </div>
 
-  <!-- æŽ²è¼‰ä¼æ¥­ä¸€è¦§ -->
+  <!-- 掲載企業一覧 -->
   <div class="sec">
     <div class="sec-hd">
-      <span class="sec-title">æŽ²è¼‰ä¼æ¥­ä¸€è¦§</span>
+      <span class="sec-title">掲載企業一覧</span>
       <div class="sec-line"></div>
-      <span class="sec-sub">aoharu-intern.com å®Ÿãƒ‡ãƒ¼ã‚¿ â€” ç¤¾åã‚¯ãƒªãƒƒã‚¯ã§æ±‚äººãƒšãƒ¼ã‚¸ã¸ â€” ç´¯è¨ˆã‚»ãƒƒãƒˆã¯Slackå¿œå‹Ÿæ„æ€å–å¾—ã‹ã‚‰é›†è¨ˆ</span>
+      <span class="sec-sub">aoharu-intern.com 実データ — 社名クリックで求人ページへ — 累計セットはSlack応募意思取得から集計</span>
     </div>
     <div class="filter-bar">
       <div class="fg">
-        <span class="fg-label">æ³¨åŠ›</span>
-        <button class="fbtn on" onclick="ft(this,'r','all')">ã™ã¹ã¦</button>
+        <span class="fg-label">注力</span>
+        <button class="fbtn on" onclick="ft(this,'r','all')">すべて</button>
         <button class="fbtn" onclick="ft(this,'r','A')">A</button>
         <button class="fbtn" onclick="ft(this,'r','B')">B</button>
         <button class="fbtn" onclick="ft(this,'r','C')">C</button>
       </div>
     </div>
-    <div class="tbl-meta" id="co-cnt">39ç¤¾ è¡¨ç¤ºä¸­</div>
+    <div class="tbl-meta" id="co-cnt">39社 表示中</div>
     <div class="tbl-wrap">
       <table>
         <thead><tr>
-          <th>æ³¨åŠ›</th><th>ä¼šç¤¾å</th><th>æ¥­ç•Œ</th><th>æ¡ˆä»¶æ•°</th><th>ç¨¼åƒ</th><th>ãƒªãƒ¢ãƒ¼ãƒˆ</th><th>åœ°åŸŸ</th><th>ç´¯è¨ˆã‚»ãƒƒãƒˆ</th>
+          <th>注力</th><th>会社名</th><th>業界</th><th>案件数</th><th>稼働</th><th>リモート</th><th>地域</th><th>累計セット</th>
         </tr></thead>
         <tbody id="co-body"></tbody>
       </table>
@@ -624,112 +624,112 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
 
   </div>
 
-  <!-- é¸è€ƒãƒ‘ã‚¤ãƒ—ãƒ©ã‚¤ãƒ³ -->
+  <!-- 選考パイプライン -->
   <div class="sec">
     <div class="sec-hd">
-      <span class="sec-title">é¸è€ƒãƒ‘ã‚¤ãƒ—ãƒ©ã‚¤ãƒ³</span>
+      <span class="sec-title">選考パイプライン</span>
       <div class="sec-line"></div>
-      <span class="sec-sub">6æœˆ â€” #10-é•·æœŸã‚¤ãƒ³ã‚¿ãƒ¼ãƒ³ ã‚ˆã‚Š</span>
+      <span class="sec-sub">6月 — #10-長期インターン より</span>
     </div>
     <div class="pipe-row">
-      <div class="pipe-card"><div class="pipe-n">5</div><div class="pipe-lbl">æ›¸é¡žæ‰“è¨º</div></div>
+      <div class="pipe-card"><div class="pipe-n">5</div><div class="pipe-lbl">書類打診</div></div>
       <div class="pipe-card">
-        <div class="pipe-n">2</div><div class="pipe-lbl">ä¸€æ¬¡é¸è€</div>
-        <div class="pipe-detail">TWOSTONE çŸ¢é‡Žã•ã‚“ 6/9<br>change&amp;base çŸ³å²¡ã•ã‚“ 6/9</div>
+        <div class="pipe-n">2</div><div class="pipe-lbl">一次選�</div>
+        <div class="pipe-detail">TWOSTONE 矢野さん 6/9<br>change&amp;base 石岡さん 6/9</div>
       </div>
       <div class="pipe-card">
-        <div class="pipe-n">1</div><div class="pipe-lbl">æœ€çµ‚é¸è€ƒ</div>
-        <div class="pipe-detail">change&amp;base ä¸­æ‘ã•ã‚“ 6/13</div>
+        <div class="pipe-n">1</div><div class="pipe-lbl">最終選考</div>
+        <div class="pipe-detail">change&amp;base 中村さん 6/13</div>
       </div>
       <div class="pipe-card">
-        <div class="pipe-n">1</div><div class="pipe-lbl">å†…å®š</div>
-        <div class="pipe-detail">PLAINER ä¸­å·ã•ã‚“<br>ã‚¯ãƒ­ãƒ¼ã‚¸ãƒ³ã‚°ä¸­</div>
+        <div class="pipe-n">1</div><div class="pipe-lbl">内定</div>
+        <div class="pipe-detail">PLAINER 中川さん<br>クロージング中</div>
       </div>
       <div class="pipe-card">
-        <div class="pipe-n">0</div><div class="pipe-lbl">æ‰¿è«¾</div>
-        <div class="pipe-detail" style="color:var(--faint)">6æœˆå®Ÿç¸¾ãªã—</div>
+        <div class="pipe-n">0</div><div class="pipe-lbl">承諾</div>
+        <div class="pipe-detail" style="color:var(--faint)">6月実績なし</div>
       </div>
     </div>
   </div>
 
-  <!-- å•†è«‡ãƒ­ã‚° -->
+  <!-- 商談ログ -->
   <div class="sec">
     <div class="sec-hd">
-      <span class="sec-title">å•†è«‡ãƒ­ã‚° â€” ç›´è¿‘</span>
+      <span class="sec-title">商談ログ — 直近</span>
       <span style="background:#FFFBEB;color:#B45309;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;letter-spacing:.5px;">SAMPLE</span>
       <div class="sec-line"></div>
-      <span class="sec-sub">Slack ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼å…¥åŠ›å¾Œã«å®Ÿãƒ‡ãƒ¼ã‚¿åæ˜ äºˆå®š</span>
+      <span class="sec-sub">Slack ワークフロー入力後に実データ反映予定</span>
     </div>
     <div class="log-wrap">
       <table class="log-tbl">
-        <thead><tr><th>æ—¥ä»˜</th><th>ä¼æ¥­</th><th>ç¨®åˆ¥</th><th>çµæžœ</th></tr></thead>
+        <thead><tr><th>日付</th><th>企業</th><th>種別</th><th>結果</th></tr></thead>
         <tbody>
-          <tr><td>06/01</td><td>helix</td><td>å•†è«‡</td><td>æ¬¡å›žææ¡ˆ</td></tr>
-          <tr><td>05/30</td><td>forest</td><td>ã‚¢ãƒ</td><td>å•†è«‡è¨­å®š</td></tr>
-          <tr><td>05/28</td><td>CACTAS</td><td>å•†è«‡</td><td>æ¤œè¨Žä¸­</td></tr>
-          <tr><td>05/26</td><td>TWOSTONE&amp;Sons</td><td>å•†è«‡</td><td>æˆç´„</td></tr>
-          <tr><td>05/24</td><td>ãƒ¡ãƒ‡ã‚£ã‚¢ã‚¨ã‚¤ãƒ‰</td><td>ã‚¢ãƒ</td><td>å•†è«‡è¨­å®š</td></tr>
-          <tr><td>05/22</td><td>ãƒªãƒ©ã‚¯ã‚·ãƒ§ãƒ³</td><td>å•†è«‡</td><td>æˆç´„</td></tr>
+          <tr><td>06/01</td><td>helix</td><td>商談</td><td>次回提案</td></tr>
+          <tr><td>05/30</td><td>forest</td><td>アポ</td><td>商談設定</td></tr>
+          <tr><td>05/28</td><td>CACTAS</td><td>商談</td><td>検討中</td></tr>
+          <tr><td>05/26</td><td>TWOSTONE&amp;Sons</td><td>商談</td><td>成約</td></tr>
+          <tr><td>05/24</td><td>メディアエイド</td><td>アポ</td><td>商談設定</td></tr>
+          <tr><td>05/22</td><td>リラクション</td><td>商談</td><td>成約</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- å…¥ç¤¾ãƒ‡ãƒ¼ã‚¿ -->
+  <!-- 入社データ -->
   <div class="sec">
     <div class="sec-hd">
-      <span class="sec-title">å…¥ç¤¾ãƒ‡ãƒ¼ã‚¿ â€” ç¨¼åƒä¸­</span>
+      <span class="sec-title">入社データ — 稼働中</span>
       <div class="sec-line"></div>
     </div>
     <div class="staff-wrap">
       <table class="staff-tbl">
-        <thead><tr><th>å­¦ç”Ÿå</th><th>ä¼æ¥­</th><th>å…¥ç¤¾æ—¥</th><th>çŠ¶æ³</th><th>åœ¨ç±æœˆ</th><th>å˜ä¾¡</th></tr></thead>
+        <thead><tr><th>学生名</th><th>企業</th><th>入社日</th><th>状況</th><th>在籍月</th><th>単価</th></tr></thead>
         <tbody>
-          <tr><td>å°é‡Žã•ã‚“</td><td>ãƒªãƒ©ã‚¯ã‚·ãƒ§ãƒ³</td><td>6/2</td><td><span class="sta-on">ç¨¼åƒä¸­</span></td><td class="tenure" data-start="2026-06-02"></td><td>15ä¸‡å††</td></tr>
-          <tr><td>ä¼Šè—¤ã•ã‚“</td><td>helix</td><td>6/8 äºˆå®š</td><td><span class="sta-go">å…¥ç¤¾äºˆå®š</span></td><td>â€”</td><td>10ä¸‡å††</td></tr>
-          <tr><td>å±±å£ã•ã‚“</td><td>forest</td><td>5/21</td><td><span class="sta-on">ç¨¼åƒä¸­</span></td><td class="tenure" data-start="2026-05-21"></td><td>10ä¸‡å††</td></tr>
-          <tr><td>æ­¦ç”°ã•ã‚“</td><td>ãƒªãƒ¢ã‚¢</td><td>èª¿æ•´ä¸­</td><td><span class="sta-adj">èª¿æ•´ä¸­</span></td><td>15ä¸‡å††</td></tr>
+          <tr><td>小野さん</td><td>リラクション</td><td>6/2</td><td><span class="sta-on">稼働中</span></td><td class="tenure" data-start="2026-06-02"></td><td>15万円</td></tr>
+          <tr><td>伊藤さん</td><td>helix</td><td>6/8 予定</td><td><span class="sta-go">入社予定</span></td><td>—</td><td>10万円</td></tr>
+          <tr><td>山口さん</td><td>forest</td><td>5/21</td><td><span class="sta-on">稼働中</span></td><td class="tenure" data-start="2026-05-21"></td><td>10万円</td></tr>
+          <tr><td>武田さん</td><td>リモア</td><td>調整中</td><td><span class="sta-adj">調整中</span></td><td>15万円</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- æ–°è¦é–‹æ‹“ -->
+  <!-- 新規開拓 -->
   <div class="sec">
     <div class="sec-hd">
-      <span class="sec-title">æ–°è¦é–‹æ‹“çŠ¶æ³</span>
+      <span class="sec-title">新規開拓状況</span>
       <div class="sec-line"></div>
-      <span class="sec-sub">ä»ŠæœˆæŽ²è¼‰ã‚¹ã‚¿ãƒ¼ãƒˆä¼æ¥­</span>
+      <span class="sec-sub">今月掲載スタート企業</span>
     </div>
     <div class="trend-row">
       <div class="trend-card">
-        <div class="tr-mo">å…ˆã€…æœˆï¼ˆ4æœˆï¼‰</div>
-        <div class="tr-n">5<sub>ç¤¾</sub></div>
+        <div class="tr-mo">先々月（4月）</div>
+        <div class="tr-n">5<sub>社</sub></div>
         <div class="tr-stats">
-          <div><div class="tr-sv">10</div><div class="tr-sl">ã‚¢ãƒ</div></div>
-          <div><div class="tr-sv">7</div><div class="tr-sl">å•†è«‡</div></div>
-          <div><div class="tr-sv">2</div><div class="tr-sl">æˆç´„</div></div>
+          <div><div class="tr-sv">10</div><div class="tr-sl">アポ</div></div>
+          <div><div class="tr-sv">7</div><div class="tr-sl">商談</div></div>
+          <div><div class="tr-sv">2</div><div class="tr-sl">成約</div></div>
         </div>
       </div>
       <div class="trend-card">
-        <div class="tr-mo">å…ˆæœˆï¼ˆ5æœˆï¼‰</div>
-        <div class="tr-n">8<sub>ç¤¾</sub></div>
+        <div class="tr-mo">先月（5月）</div>
+        <div class="tr-n">8<sub>社</sub></div>
         <div class="tr-stats">
-          <div><div class="tr-sv">13</div><div class="tr-sl">ã‚¢ãƒ</div></div>
-          <div><div class="tr-sv">9</div><div class="tr-sl">å•†è«‡</div></div>
-          <div><div class="tr-sv">3</div><div class="tr-sl">æˆç´„</div></div>
+          <div><div class="tr-sv">13</div><div class="tr-sl">アポ</div></div>
+          <div><div class="tr-sv">9</div><div class="tr-sl">商談</div></div>
+          <div><div class="tr-sv">3</div><div class="tr-sl">成約</div></div>
         </div>
       </div>
       <div class="trend-card now">
-        <div class="tr-mo now">ä»Šæœˆï¼ˆ6æœˆï¼‰â€” æœˆä¸­</div>
-        <div class="tr-n">0<sub>ç¤¾</sub></div>
-        <div class="tr-none">æ–°è¦æŽ²è¼‰ã‚¹ã‚¿ãƒ¼ãƒˆä¼æ¥­ãªã—</div>
+        <div class="tr-mo now">今月（6月）— 月中</div>
+        <div class="tr-n">0<sub>社</sub></div>
+        <div class="tr-none">新規掲載スタート企業なし</div>
       </div>
       <div class="trend-card tl">
         <div class="tl-area">
-          <div class="tl-lbl">ãƒ†ãƒ¬ãƒžãƒªã‚¹ãƒˆ</div>
-          <a href="#" class="tl-link" onclick="return false" style="color:#fff;background:var(--or);padding:8px 16px;border-radius:8px;font-size:13px;">ãƒ†ãƒ¬ãƒžãƒªã‚¹ãƒˆ â†’</a>
-          <div class="tl-note">â€» ãƒªãƒ³ã‚¯ã¯å¾Œã§è¨­å®šã—ã¦ãã ã•ã„</div>
+          <div class="tl-lbl">テレマリスト</div>
+          <a href="#" class="tl-link" onclick="return false" style="color:#fff;background:var(--or);padding:8px 16px;border-radius:8px;font-size:13px;">テレマリスト →</a>
+          <div class="tl-note">※ リンクは後で設定してください</div>
         </div>
       </div>
     </div>
@@ -737,63 +737,63 @@ tbody td { padding: 11px 16px; font-size: 13px; vertical-align: middle; }
 
 </div><!-- /tab-long -->
 <div id="tab-short" class="tab-pane">
-  <div class="wip">çŸ­æœŸã‚¤ãƒ³ã‚¿ãƒ¼ãƒ³ã‚¿ãƒ– â€” æº–å‚™ä¸­</div>
+  <div class="wip">短期インターンタブ — 準備中</div>
 </div>
 </div><!-- /main -->
 
 <script>
 const BASE = 'https://aoharu-intern.com/companies/';
 const cos = [
-  {r:'A',n:'æ ªå¼ä¼šç¤¾helix',cid:'350e96fe-3282-414c-bc5e-15b2c117f408',jid:'e227f154-3cfc-4f51-9e54-d1969b1890a5',ind:'åºƒå‘Šãƒ»ãƒžãƒ¼ã‚±',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'ä¸€éƒ¨ãƒªãƒ¢ãƒ¼ãƒˆå¯',area:'æ±äº¬éƒ½',sets:5},
-  {r:'A',n:'forestæ ªå¼ä¼šç¤¾',cid:'6855332d-70fc-4635-8dbc-3f370cfa120c',jid:'c9974c7d-c652-4517-9e3b-b278ec99d6c8',ind:'ã‚³ãƒ³ã‚µãƒ«',jobs:'4ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:3},
-  {r:'A',n:'æ ªå¼ä¼šç¤¾ãƒªãƒ©ã‚¯ã‚·ãƒ§ãƒ³',cid:'46100bda-1900-41fd-9b41-18a7efee43c7',jid:'31ff575b-5bc3-414e-9dd8-98a75bdb3f22',ind:'ã‚µãƒ¼ãƒ“ã‚¹',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:5},
-  {r:'A',n:'æ ªå¼ä¼šç¤¾TWOSTONE&Sons',cid:'71915e95-6fb6-4bc6-9295-653ac8d3c79c',jid:'3c16d4f0-0ee2-4999-8aa7-b277223417af',ind:'æ•™è‚²ãƒ»äººæ',jobs:'3ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:7},
-  {r:'A',n:'change&baseåˆåŒä¼šç¤¾',cid:'cf54f93a-42e7-43ee-be9f-c26dda4b29b8',jid:'290ddde2-a200-4696-9bfd-7c40a911ce30',ind:'æ•™è‚²ãƒ»äººæ',jobs:'2ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'ãƒ•ãƒ«ãƒªãƒ¢ãƒ¼ãƒˆ',area:'æ±äº¬éƒ½',sets:2},
-  {r:'A',n:'PLAINERæ ªå¼ä¼šç¤¾',cid:'b2e631f7-71ce-4d30-9056-e2d864693c4f',jid:'17566a3d-abd2-492e-8554-8e5b7249b864',ind:'ITãƒ»Web',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:8},
-  {r:'A',n:'æ ªå¼ä¼šç¤¾ãƒ¡ãƒ‡ã‚£ã‚¢ã‚¨ã‚¤ãƒ‰',cid:'74e8b2d5-8bc0-4598-b3d9-e91515129541',jid:'fa3fdbc7-5dc0-47aa-a4a7-c4eddff7c558',ind:'ITãƒ»Web',jobs:'4ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:7},
-  {r:'A',n:'æ ªå¼ä¼šç¤¾CACTAS',cid:'7ebe9ea4-b230-4927-85f2-527ae6f16a18',jid:'3ac6c3ab-7599-4a9f-845b-c2eabb70a7b6',ind:'åºƒå‘Šãƒ»ãƒžãƒ¼ã‚±',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:1},
-  {r:'A',n:'æ ªå¼ä¼šç¤¾ã‚¸ã‚§ã‚¤ãƒƒã‚¯',cid:'548b83da-5e8d-479c-b218-1dbc61fa3914',jid:'b816547e-2486-46c8-ad12-5bfce3694d8d',ind:'æ•™è‚²ãƒ»äººæ',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'ä¸€éƒ¨ãƒªãƒ¢ãƒ¼ãƒˆå¯',area:'æ±äº¬éƒ½',sets:2},
-  {r:'B',n:'æ ªå¼ä¼šç¤¾WILLCO',cid:'d4f6ce48-d273-4f49-8a9a-865224c27e18',jid:'ce17dc2b-a0a6-4184-9448-029c90b6f570',ind:'æ•™è‚²ãƒ»äººæ',jobs:'1ä»¶',hrs:'é€±3æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:2},
-  {r:'B',n:'VOIQæ ªå¼ä¼šç¤¾',cid:'0238fd5a-f0dd-49e3-b321-ef7396f52e14',jid:'a33a644c-02d0-47d7-845a-798c456ef527',ind:'ã‚³ãƒ³ã‚µãƒ«',jobs:'1ä»¶',hrs:'é€±3æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:0},
-  {r:'B',n:'æ ªå¼ä¼šç¤¾SCORE X',cid:'09b0c6dd-b9da-4d76-93e8-c6e5e2db6183',jid:'86b3ce81-107a-4149-8dfb-44e8fa446d84',ind:'ITãƒ»Web',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:0},
-  {r:'B',n:'æ ªå¼ä¼šç¤¾ãƒã‚¤ãƒœãƒ¼ãƒ«',cid:'c80516d6-7953-4667-8c8c-dfe02d9bddb0',jid:'5e97b195-f2c9-4d30-97f2-d9968d874bf6',ind:'åºƒå‘Šãƒ»ãƒžãƒ¼ã‚±',jobs:'1ä»¶',hrs:'é€±3æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:1},
-  {r:'A',n:'Don Richyæ ªå¼ä¼šç¤¾',cid:'9189c82b-5c5b-4014-99f1-0b2b5c33e424',jid:'0204d5ba-4ee9-46a7-a6dc-30673b35b096',ind:'ã‚µãƒ¼ãƒ“ã‚¹',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:1},
-  {r:'A',n:'æ ªå¼ä¼šç¤¾ã‚¢ã‚¬ãƒ«ãƒ¼ãƒˆSP',cid:'3241664b-56b1-417f-bf4a-f79026eaf086',jid:'0efe78cd-9b6a-4f49-a417-af7685f41ee2',ind:'ã‚³ãƒ³ã‚µãƒ«',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:0},
-  {r:'B',n:'æ ªå¼ä¼šç¤¾FULL HOUSE',cid:'7b583e0b-2bd4-4b34-a64d-c78ece35400c',jid:'93fa38c3-404f-416f-a870-7dba57c8e326',ind:'ITãƒ»Web',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:0},
-  {r:'B',n:'æ ªå¼ä¼šç¤¾Linkry',cid:'45b2c4b4-a36a-4d91-84a9-f11b1008b7aa',jid:'c6138c07-f9d7-45f6-9475-12d4067967c2',ind:'ã‚³ãƒ³ã‚µãƒ«',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'ãƒ•ãƒ«ãƒªãƒ¢ãƒ¼ãƒˆ',area:'æ±äº¬éƒ½',sets:0},
-  {r:'B',n:'RebozuåˆåŒä¼šç¤¾',cid:'b4fbe35b-703f-43dc-8a60-cdfe99a1d8ef',jid:'8feb3be8-ab28-4416-a520-cacfa647ff20',ind:'ã‚³ãƒ³ã‚µãƒ«',jobs:'2ä»¶',hrs:'é€±3æ—¥ä»¥ä¸Š',rem:'ä¸€éƒ¨ãƒªãƒ¢ãƒ¼ãƒˆå¯',area:'å¤§é˜ª/æ±äº¬',sets:1},
-  {r:'A',n:'LSIGN POSTæ ªå¼ä¼šç¤¾',cid:'00aba706-32ab-4981-8959-79657a9a1e9a',jid:'8750233a-ac28-4746-ab19-5b9d3e831e35',ind:'æ•™è‚²ãƒ»äººæ',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:4},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾YUMEA',cid:'f25646c8-8fc4-43a4-a763-387eb23c68f4',jid:'c2a15c6c-2667-4e0d-82ad-0d48f770b73b',ind:'ã‚µãƒ¼ãƒ“ã‚¹',jobs:'5ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'é–¢æ±å„åœ°',sets:3},
-  {r:'A',n:'å’Œä¼š',cid:'8a543afd-19b5-4002-9d04-b115cb1109c1',jid:'d4801cb6-f2ca-48ce-8953-c3bbe11f75f0',ind:'ãã®ä»–',jobs:'1ä»¶',hrs:'é€±1æ—¥',rem:'ãƒ•ãƒ«ãƒªãƒ¢ãƒ¼ãƒˆ',area:'åƒè‘‰çœŒ',sets:0},
-  {r:'A',n:'æ ªå¼ä¼šç¤¾ã‚¨ã‚³ãƒ©ã‚¤ãƒ•',cid:'ec6b0940-8a89-4c97-8710-20462193663d',jid:'c3d19102-58fb-4360-a5ff-944274a7025b',ind:'ã‚µãƒ¼ãƒ“ã‚¹',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'ç¥žå¥ˆå·çœŒ',sets:0},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾ä¸€æˆ¸ãƒ›ãƒ¼ãƒ ',cid:'2a4d9b0c-ab5f-4bcd-9da9-15295d9beef6',jid:'4583b5b5-c7dc-4077-b182-ac8ca53276ef',ind:'ãã®ä»–',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:0},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾L&E Group',cid:'e8033fc6-d3b0-42de-8118-0a4f756a6cd8',jid:'129f1251-6c4d-4350-82b7-b25956b4c6c9',ind:'åºƒå‘Šãƒ»ãƒžãƒ¼ã‚±',jobs:'1ä»¶',hrs:'é€±3æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:1},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾WorCry',cid:'a6e86024-7da3-4141-9b2d-fc0f92e3b738',jid:'00950ef2-f312-4598-96d3-d543c7e6ff7f',ind:'æ•™è‚²ãƒ»äººæ',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:0},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾TOMAP',cid:'5fc464f0-b686-4291-88ae-3019777739ff',jid:'8f0d61e5-f6eb-477c-82f8-8d9e52a1b053',ind:'æ•™è‚²ãƒ»äººæ',jobs:'1ä»¶',hrs:'é€±3æ—¥ä»¥ä¸Š',rem:'ä¸€éƒ¨ãƒªãƒ¢ãƒ¼ãƒˆå¯',area:'æ±äº¬éƒ½',sets:0},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾IPPO',cid:'f11f76f7-ed65-4906-9e99-6cfe29e28df6',jid:'51cd33ff-ef2d-476d-8a29-d17cd2c174d6',ind:'ã‚µãƒ¼ãƒ“ã‚¹',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:2},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾Kakedas',cid:'aad1fee2-0412-4965-be69-b29ffa271d3f',jid:'32a201af-236d-4c8f-8383-eb412e1d25a9',ind:'ITãƒ»Web',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'ä¸€éƒ¨ãƒªãƒ¢ãƒ¼ãƒˆå¯',area:'æ±äº¬éƒ½',sets:1},
-  {r:'C',n:"æ ªå¼ä¼šç¤¾SKY'S",cid:'3f9f7331-83a6-4edc-b2ed-8f1aec1424fc',jid:'1c0dc50a-5468-4243-86e3-511f648657f7',ind:'ITãƒ»Web',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ„›çŸ¥çœŒ',sets:0},
-  {r:'C',n:'æ—¥æœ¬ã‚¹ã‚­ãƒ«ãƒ—ãƒ­ãƒã‚¤ãƒ€',cid:'e370457a-114f-48c7-9e73-67b3e10c618f',jid:'486806a3-3e78-4af6-bbfa-074c9bf2a8ab',ind:'ã‚³ãƒ³ã‚µãƒ«',jobs:'3ä»¶',hrs:'é€±1æ—¥',rem:'ãƒ•ãƒ«ãƒªãƒ¢ãƒ¼ãƒˆ',area:'åƒè‘‰çœŒ',sets:0},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾upceed',cid:'a3e2ac1d-84d5-477d-9757-80611c18590f',jid:'e6cfe76e-6bd7-4fce-8699-6ebf39fd7bf3',ind:'åºƒå‘Šãƒ»ãƒžãƒ¼ã‚±',jobs:'1ä»¶',hrs:'é€±3æ—¥ä»¥ä¸Š',rem:'ä¸€éƒ¨ãƒªãƒ¢ãƒ¼ãƒˆå¯',area:'æ±äº¬éƒ½',sets:1},
-  {r:'C',n:'æ ªå¼ä¼šç¤½MaVie',cid:'0b982513-81cb-4361-9e0c-2db3c066a2a1',jid:'c77e1a3b-4567-4ce5-b9fc-c2b08edcf386',ind:'ã‚³ãƒ³ã‚µãƒ«',jobs:'2ä»¶',hrs:'é€±1æ—¥',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:2},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾UNLIMIT',cid:'f85bf177-8e85-4b64-a4af-366633ecd407',jid:'a431ddbd-14ac-4d68-9aca-35f2c2a1ebb3',ind:'æ•™è‚²ãƒ»äººæ',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'ä¸€éƒ¨ãƒªãƒ¢ãƒ¼ãƒˆå¯',area:'æ±äº¬éƒ½',sets:0},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾ãƒ‡ã‚¸ã‚¿ãƒ«ãƒˆãƒ¬ãƒ³ã‚º',cid:'2e5b4da7-885b-4d75-9288-7c6b52067783',jid:'84697ffc-d3ca-4599-aab6-5029fae3a450',ind:'åºƒå‘Šãƒ»ãƒžãƒ¼ã‚±',jobs:'1ä»¶',hrs:'é€±3æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:2},
-  {r:'C',n:'Acroforceæ ªå¼ä¼šç¤¾',cid:'055c791d-c19f-4f38-9a37-12df20af85c7',jid:'46ed3dda-41cd-4db7-bf13-00d700620038',ind:'æ•™è‚²ãƒ»äººæ',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:4},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾ãƒ‘ãƒ¯ãƒ¼ãƒ»ãƒ•ã‚¡ãƒ¼ãƒ ',cid:'c7a86843-7441-44d9-b16c-bb4a637c0d32',jid:'e305677d-d45b-4b3b-9463-603afe8240eb',ind:'ãã®ä»–',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:1},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾ãƒ†ã‚£ãƒ¼ã‚¿ã‚¤ãƒ ',cid:'41e73973-8291-40c7-be5f-afe1d886871a',jid:'064e5133-891a-4e2e-b6d4-834824b9abcc',ind:'æ•™è‚²ãƒ»äººæ',jobs:'2ä»¶',hrs:'é€±3æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'æ±äº¬éƒ½',sets:1},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾æœ€å¼·',cid:'4d7e913c-6221-418e-999a-40c22aeb53dd',jid:'04c37b2a-4e28-449c-a9cf-f54ec8781c66',ind:'ã‚µãƒ¼ãƒ“ã‚¹',jobs:'2ä»¶',hrs:'é€±3æ—¥ä»¥ä¸Š',rem:'åŽŸå‰‡å‡ºç¤¾',area:'å¤§é˜ª/æ±äº¬',sets:1},
-  {r:'C',n:'æ ªå¼ä¼šç¤¾Influencer Tech',cid:'88081895-c679-43bb-9442-948757afa9a5',jid:'9e947955-c743-4313-9b79-18e0a30aa6d8',ind:'åºƒå‘Šãƒ»ãƒžãƒ¼ã‚±',jobs:'1ä»¶',hrs:'é€±2æ—¥ä»¥ä¸Š',rem:'ä¸€éƒ¨ãƒªãƒ¢ãƒ¼ãƒˆå¯',area:'æ±äº¬éƒ½',sets:3},
+  {r:'A',n:'株式会社helix',cid:'350e96fe-3282-414c-bc5e-15b2c117f408',jid:'e227f154-3cfc-4f51-9e54-d1969b1890a5',ind:'広告・マーケ',jobs:'1件',hrs:'週2日以上',rem:'一部リモート可',area:'東京都',sets:5},
+  {r:'A',n:'forest株式会社',cid:'6855332d-70fc-4635-8dbc-3f370cfa120c',jid:'c9974c7d-c652-4517-9e3b-b278ec99d6c8',ind:'コンサル',jobs:'4件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:3},
+  {r:'A',n:'株式会社リラクション',cid:'46100bda-1900-41fd-9b41-18a7efee43c7',jid:'31ff575b-5bc3-414e-9dd8-98a75bdb3f22',ind:'サービス',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:5},
+  {r:'A',n:'株式会社TWOSTONE&Sons',cid:'71915e95-6fb6-4bc6-9295-653ac8d3c79c',jid:'3c16d4f0-0ee2-4999-8aa7-b277223417af',ind:'教育・人材',jobs:'3件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:7},
+  {r:'A',n:'change&base合同会社',cid:'cf54f93a-42e7-43ee-be9f-c26dda4b29b8',jid:'290ddde2-a200-4696-9bfd-7c40a911ce30',ind:'教育・人材',jobs:'2件',hrs:'週2日以上',rem:'フルリモート',area:'東京都',sets:2},
+  {r:'A',n:'PLAINER株式会社',cid:'b2e631f7-71ce-4d30-9056-e2d864693c4f',jid:'17566a3d-abd2-492e-8554-8e5b7249b864',ind:'IT・Web',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:8},
+  {r:'A',n:'株式会社メディアエイド',cid:'74e8b2d5-8bc0-4598-b3d9-e91515129541',jid:'fa3fdbc7-5dc0-47aa-a4a7-c4eddff7c558',ind:'IT・Web',jobs:'4件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:7},
+  {r:'A',n:'株式会社CACTAS',cid:'7ebe9ea4-b230-4927-85f2-527ae6f16a18',jid:'3ac6c3ab-7599-4a9f-845b-c2eabb70a7b6',ind:'広告・マーケ',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:1},
+  {r:'A',n:'株式会社ジェイック',cid:'548b83da-5e8d-479c-b218-1dbc61fa3914',jid:'b816547e-2486-46c8-ad12-5bfce3694d8d',ind:'教育・人材',jobs:'1件',hrs:'週2日以上',rem:'一部リモート可',area:'東京都',sets:2},
+  {r:'B',n:'株式会社WILLCO',cid:'d4f6ce48-d273-4f49-8a9a-865224c27e18',jid:'ce17dc2b-a0a6-4184-9448-029c90b6f570',ind:'教育・人材',jobs:'1件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:2},
+  {r:'B',n:'VOIQ株式会社',cid:'0238fd5a-f0dd-49e3-b321-ef7396f52e14',jid:'a33a644c-02d0-47d7-845a-798c456ef527',ind:'コンサル',jobs:'1件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:0},
+  {r:'B',n:'株式会社SCORE X',cid:'09b0c6dd-b9da-4d76-93e8-c6e5e2db6183',jid:'86b3ce81-107a-4149-8dfb-44e8fa446d84',ind:'IT・Web',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:0},
+  {r:'B',n:'株式会社ハイボール',cid:'c80516d6-7953-4667-8c8c-dfe02d9bddb0',jid:'5e97b195-f2c9-4d30-97f2-d9968d874bf6',ind:'広告・マーケ',jobs:'1件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:1},
+  {r:'A',n:'Don Richy株式会社',cid:'9189c82b-5c5b-4014-99f1-0b2b5c33e424',jid:'0204d5ba-4ee9-46a7-a6dc-30673b35b096',ind:'サービス',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:1},
+  {r:'A',n:'株式会社アガルートSP',cid:'3241664b-56b1-417f-bf4a-f79026eaf086',jid:'0efe78cd-9b6a-4f49-a417-af7685f41ee2',ind:'コンサル',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:0},
+  {r:'B',n:'株式会社FULL HOUSE',cid:'7b583e0b-2bd4-4b34-a64d-c78ece35400c',jid:'93fa38c3-404f-416f-a870-7dba57c8e326',ind:'IT・Web',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:0},
+  {r:'B',n:'株式会社Linkry',cid:'45b2c4b4-a36a-4d91-84a9-f11b1008b7aa',jid:'c6138c07-f9d7-45f6-9475-12d4067967c2',ind:'コンサル',jobs:'1件',hrs:'週2日以上',rem:'フルリモート',area:'東京都',sets:0},
+  {r:'B',n:'Rebozu合同会社',cid:'b4fbe35b-703f-43dc-8a60-cdfe99a1d8ef',jid:'8feb3be8-ab28-4416-a520-cacfa647ff20',ind:'コンサル',jobs:'2件',hrs:'週3日以上',rem:'一部リモート可',area:'大阪/東京',sets:1},
+  {r:'A',n:'LSIGN POST株式会社',cid:'00aba706-32ab-4981-8959-79657a9a1e9a',jid:'8750233a-ac28-4746-ab19-5b9d3e831e35',ind:'教育・人材',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:4},
+  {r:'C',n:'株式会社YUMEA',cid:'f25646c8-8fc4-43a4-a763-387eb23c68f4',jid:'c2a15c6c-2667-4e0d-82ad-0d48f770b73b',ind:'サービス',jobs:'5件',hrs:'週2日以上',rem:'原則出社',area:'関東各地',sets:3},
+  {r:'A',n:'和会',cid:'8a543afd-19b5-4002-9d04-b115cb1109c1',jid:'d4801cb6-f2ca-48ce-8953-c3bbe11f75f0',ind:'その他',jobs:'1件',hrs:'週1日',rem:'フルリモート',area:'千葉県',sets:0},
+  {r:'A',n:'株式会社エコライフ',cid:'ec6b0940-8a89-4c97-8710-20462193663d',jid:'c3d19102-58fb-4360-a5ff-944274a7025b',ind:'サービス',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'神奈川県',sets:0},
+  {r:'C',n:'株式会社一戸ホーム',cid:'2a4d9b0c-ab5f-4bcd-9da9-15295d9beef6',jid:'4583b5b5-c7dc-4077-b182-ac8ca53276ef',ind:'その他',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:0},
+  {r:'C',n:'株式会社L&E Group',cid:'e8033fc6-d3b0-42de-8118-0a4f756a6cd8',jid:'129f1251-6c4d-4350-82b7-b25956b4c6c9',ind:'広告・マーケ',jobs:'1件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:1},
+  {r:'C',n:'株式会社WorCry',cid:'a6e86024-7da3-4141-9b2d-fc0f92e3b738',jid:'00950ef2-f312-4598-96d3-d543c7e6ff7f',ind:'教育・人材',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:0},
+  {r:'C',n:'株式会社TOMAP',cid:'5fc464f0-b686-4291-88ae-3019777739ff',jid:'8f0d61e5-f6eb-477c-82f8-8d9e52a1b053',ind:'教育・人材',jobs:'1件',hrs:'週3日以上',rem:'一部リモート可',area:'東京都',sets:0},
+  {r:'C',n:'株式会社IPPO',cid:'f11f76f7-ed65-4906-9e99-6cfe29e28df6',jid:'51cd33ff-ef2d-476d-8a29-d17cd2c174d6',ind:'サービス',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:2},
+  {r:'C',n:'株式会社Kakedas',cid:'aad1fee2-0412-4965-be69-b29ffa271d3f',jid:'32a201af-236d-4c8f-8383-eb412e1d25a9',ind:'IT・Web',jobs:'1件',hrs:'週2日以上',rem:'一部リモート可',area:'東京都',sets:1},
+  {r:'C',n:"株式会社SKY'S",cid:'3f9f7331-83a6-4edc-b2ed-8f1aec1424fc',jid:'1c0dc50a-5468-4243-86e3-511f648657f7',ind:'IT・Web',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'愛知県',sets:0},
+  {r:'C',n:'日本スキルプロバイダ',cid:'e370457a-114f-48c7-9e73-67b3e10c618f',jid:'486806a3-3e78-4af6-bbfa-074c9bf2a8ab',ind:'コンサル',jobs:'3件',hrs:'週1日',rem:'フルリモート',area:'千葉県',sets:0},
+  {r:'C',n:'株式会社upceed',cid:'a3e2ac1d-84d5-477d-9757-80611c18590f',jid:'e6cfe76e-6bd7-4fce-8699-6ebf39fd7bf3',ind:'広告・マーケ',jobs:'1件',hrs:'週3日以上',rem:'一部リモート可',area:'東京都',sets:1},
+  {r:'C',n:'株式会礽MaVie',cid:'0b982513-81cb-4361-9e0c-2db3c066a2a1',jid:'c77e1a3b-4567-4ce5-b9fc-c2b08edcf386',ind:'コンサル',jobs:'2件',hrs:'週1日',rem:'原則出社',area:'東京都',sets:2},
+  {r:'C',n:'株式会社UNLIMIT',cid:'f85bf177-8e85-4b64-a4af-366633ecd407',jid:'a431ddbd-14ac-4d68-9aca-35f2c2a1ebb3',ind:'教育・人材',jobs:'1件',hrs:'週2日以上',rem:'一部リモート可',area:'東京都',sets:0},
+  {r:'C',n:'株式会社デジタルトレンズ',cid:'2e5b4da7-885b-4d75-9288-7c6b52067783',jid:'84697ffc-d3ca-4599-aab6-5029fae3a450',ind:'広告・マーケ',jobs:'1件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:2},
+  {r:'C',n:'Acroforce株式会社',cid:'055c791d-c19f-4f38-9a37-12df20af85c7',jid:'46ed3dda-41cd-4db7-bf13-00d700620038',ind:'教育・人材',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:4},
+  {r:'C',n:'株式会社パワー・ファーム',cid:'c7a86843-7441-44d9-b16c-bb4a637c0d32',jid:'e305677d-d45b-4b3b-9463-603afe8240eb',ind:'その他',jobs:'1件',hrs:'週2日以上',rem:'原則出社',area:'東京都',sets:1},
+  {r:'C',n:'株式会社ティータイム',cid:'41e73973-8291-40c7-be5f-afe1d886871a',jid:'064e5133-891a-4e2e-b6d4-834824b9abcc',ind:'教育・人材',jobs:'2件',hrs:'週3日以上',rem:'原則出社',area:'東京都',sets:1},
+  {r:'C',n:'株式会社最強',cid:'4d7e913c-6221-418e-999a-40c22aeb53dd',jid:'04c37b2a-4e28-449c-a9cf-f54ec8781c66',ind:'サービス',jobs:'2件',hrs:'週3日以上',rem:'原則出社',area:'大阪/東京',sets:1},
+  {r:'C',n:'株式会社Influencer Tech',cid:'88081895-c679-43bb-9442-948757afa9a5',jid:'9e947955-c743-4313-9b79-18e0a30aa6d8',ind:'広告・マーケ',jobs:'1件',hrs:'週2日以上',rem:'一部リモート可',area:'東京都',sets:3},
 ];
 let rf='all';
 function renderCo(){
   const f = cos.filter(c=>(rf==='all'||c.r===rf));
-  document.getElementById('co-cnt').textContent = f.length+'ç¤¾ è¡¨ç¤ºä¸­';
+  document.getElementById('co-cnt').textContent = f.length+'社 表示中';
   document.getElementById('co-body').innerHTML = f.map(c=>`
     <tr>
       <td><span class="rk rk-${c.r}">${c.r}</span></td>
       <td><a class="co-link" href="${BASE}${c.cid}/jobs/${c.jid}" target="_blank">${c.n}</a></td>
       <td>${c.ind}</td><td>${c.jobs}</td><td>${c.hrs}</td><td>${c.rem}</td><td>${c.area}</td>
-      <td style="font-size:14px;font-weight:700;color:${c.sets>0?'var(--nv)':'var(--faint)'}">${c.sets>0?c.sets+'å':'â€”'}</td>
+      <td style="font-size:14px;font-weight:700;color:${c.sets>0?'var(--nv)':'var(--faint)'}">${c.sets>0?c.sets+'名':'—'}</td>
     </tr>`).join('');
 }
 function ft(btn,type,val){
@@ -810,20 +810,20 @@ function switchTab(id,btn){
 }
 renderCo();
 
-// åœ¨ç±æœˆ å‹•çš„è¨ˆç®—
+// 在籍月 動的計算
 (function() {
   const now = new Date();
   document.querySelectorAll('.tenure[data-start]').forEach(td => {
     const start = new Date(td.dataset.start);
     const diffMs = now - start;
-    if (diffMs < 0) { td.textContent = 'æœªå…¥ç¤¾'; return; }
+    if (diffMs < 0) { td.textContent = '未入社'; return; }
     const days = Math.floor(diffMs / 86400000);
     const months = Math.floor(days / 30.44);
     const rem = days % 30;
     if (months === 0) {
-      td.textContent = days + 'æ—¥ç›®';
+      td.textContent = days + '日目';
     } else {
-      td.innerHTML = '<strong style="color:var(--or)">' + months + 'ãƒ¶æœˆ</strong>' + (rem > 0 ? ' ' + rem + 'æ—¥' : '');
+      td.innerHTML = '<strong style="color:var(--or)">' + months + 'ヶ月</strong>' + (rem > 0 ? ' ' + rem + '日' : '');
     }
   });
 })();
