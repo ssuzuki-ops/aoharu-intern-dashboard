@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サイデック株式会社 採用サイト｜世界の精密を、無傷で届ける。</title>
+<meta name="description" content="サイデック株式会社の採用サイト。創業90年、精密部品の機能包装材でシェアトップクラス。名だたるメーカーの精密部品を世界へ送り出してきた包装の専門メーカー。新卒・中途採用情報。">
+<meta property="og:title" content="サイデック株式会社 採用サイト｜世界の精密を、無傷で届ける。">
+<meta property="og:description" content="創業90年、精密部品の機能包装材でシェアトップクラス。設計から試作・製造・品質保証まで一気通貫。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Old+Mincho:wght@600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#152844;
+  --navy-deep:#0e1c30;
+  --ink:#1c2738;
+  --coral:#e07a5f;
+  --coral-soft:#ec9a82;
+  --gold:#c9a24b;
+  --sky:#7fa8c9;
+  --sky-soft:#cfe0ec;
+  --cream:#f7f1e9;
+  --cream-2:#fbf7f1;
+  --paper:#fffdfa;
+  --line:rgba(21,40,68,.12);
+  --shadow:0 24px 60px -28px rgba(21,40,68,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans JP",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--cream-2);
+  line-height:1.85;
+  font-weight:400;
+  overflow-x:hidden;
+  letter-spacing:.02em;
+}
+.mincho{font-family:"Shippori Mincho","Zen Old Mincho",serif;}
+.zen{font-family:"Zen Old Mincho",serif;}
+.script{font-family:"Cormorant Garamond",serif;font-style:italic;}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+.en-label{
+  font-family:"Cormorant Garamond",serif;
+  font-style:italic;
+  letter-spacing:.08em;
+  color:var(--coral);
+  font-size:1.25rem;
+  font-weight:600;
+  display:inline-block;
+}
+.sec-head{margin-bottom:54px;text-align:center}
+.sec-head .ja{
+  font-family:"Zen Old Mincho",serif;
+  font-size:2.05rem;
+  font-weight:900;
+  color:var(--navy);
+  letter-spacing:.06em;
+  line-height:1.5;
+  margin-top:6px;
+}
+.sec-head .ja small{display:block;font-size:.95rem;font-weight:400;letter-spacing:.12em;color:#62718a;margin-top:14px;font-family:"Noto Sans JP"}
+
+/* ===== Header ===== */
+header.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 34px;
+  transition:.4s;
+}
+header.nav.scrolled{background:rgba(255,253,250,.92);backdrop-filter:blur(12px);padding:12px 34px;box-shadow:0 8px 30px -20px rgba(21,40,68,.5)}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;transition:.4s}
+header.nav.scrolled .brand{color:var(--navy)}
+.brand .logo-mark{
+  width:42px;height:42px;border-radius:12px;flex:none;
+  background:linear-gradient(135deg,var(--coral),var(--gold));
+  display:grid;place-items:center;
+  font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;
+  color:#fff;font-size:1.5rem;box-shadow:0 8px 20px -8px rgba(224,122,95,.7)
+}
+.brand .bt{line-height:1.25}
+.brand .bt b{font-family:"Zen Old Mincho",serif;font-size:1.12rem;letter-spacing:.14em;font-weight:700;display:block}
+.brand .bt span{font-size:.62rem;letter-spacing:.32em;opacity:.8;font-family:"Cormorant Garamond",serif;font-style:italic}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{color:#fff;font-size:.84rem;letter-spacing:.12em;transition:.3s;font-weight:500}
+header.nav.scrolled .nav-links a{color:var(--navy)}
+.nav-links a:hover{color:var(--coral-soft)}
+header.nav.scrolled .nav-links a:hover{color:var(--coral)}
+.nav-cta{
+  background:var(--coral);color:#fff !important;padding:11px 24px;border-radius:40px;
+  font-weight:700;box-shadow:0 12px 24px -10px rgba(224,122,95,.8)
+}
+.nav-cta:hover{background:#cf6a50;transform:translateY(-1px)}
+.burger{display:none}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  background:
+    radial-gradient(120% 80% at 80% 10%,rgba(224,122,95,.16),transparent 55%),
+    radial-gradient(100% 90% at 10% 90%,rgba(127,168,201,.18),transparent 50%),
+    linear-gradient(160deg,var(--navy-deep) 0%,var(--navy) 60%,#1a3253 100%);
+  color:#fff;overflow:hidden;
+}
+.hero .grain{position:absolute;inset:0;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E")}
+.hero-deco{position:absolute;inset:0;pointer-events:none}
+.hero-deco svg{position:absolute}
+.float{animation:float 9s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+.spin-slow{transform-origin:center;animation:spin 38s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-inner{position:relative;z-index:3;width:100%}
+.hero .eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.05rem;
+  letter-spacing:.14em;color:var(--coral-soft);margin-bottom:26px;
+}
+.hero .eyebrow::before{content:"";width:46px;height:1px;background:var(--coral-soft);display:inline-block}
+.hero h1{
+  font-family:"Zen Old Mincho",serif;font-weight:900;
+  font-size:clamp(2.5rem,6.2vw,4.7rem);line-height:1.42;letter-spacing:.04em;
+  text-shadow:0 6px 40px rgba(0,0,0,.35);
+}
+.hero h1 .hl{color:var(--coral-soft)}
+.hero h1 .gold{
+  background:linear-gradient(120deg,var(--gold),#ecd9a0);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero .sub{
+  margin-top:30px;font-size:clamp(1rem,1.6vw,1.18rem);font-weight:300;
+  color:rgba(255,255,255,.86);letter-spacing:.05em;max-width:30em;line-height:2.1;
+}
+.hero .sub b{font-weight:500;color:#fff;border-bottom:1px solid rgba(224,122,95,.6);padding-bottom:1px}
+.hero-cta{display:flex;gap:16px;margin-top:46px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:12px;padding:17px 38px;border-radius:46px;
+  font-weight:700;letter-spacing:.08em;transition:.3s;font-size:.95rem;
+}
+.btn-primary{background:var(--coral);color:#fff;box-shadow:0 18px 36px -14px rgba(224,122,95,.85)}
+.btn-primary:hover{background:#cf6a50;transform:translateY(-3px)}
+.btn-ghost{border:1px solid rgba(255,255,255,.5);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn .arr{transition:.3s}
+.btn:hover .arr{transform:translateX(5px)}
+.hero-scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.6);font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.8rem;letter-spacing:.2em}
+.hero-scroll .bar{width:1px;height:46px;background:linear-gradient(rgba(255,255,255,.6),transparent);animation:scr 2s ease-in-out infinite}
+@keyframes scr{0%{opacity:0;transform:scaleY(.2);transform-origin:top}50%{opacity:1}100%{opacity:0;transform:scaleY(1);transform-origin:top}}
+
+/* marquee */
+.marquee{position:absolute;bottom:0;left:0;right:0;z-index:3;border-top:1px solid rgba(255,255,255,.12);background:rgba(14,28,48,.4);overflow:hidden;padding:11px 0}
+.marquee .track{display:inline-flex;gap:50px;white-space:nowrap;animation:mv 26s linear infinite;font-family:"Cormorant Garamond",serif;font-style:italic;letter-spacing:.18em;color:rgba(255,255,255,.5);font-size:.92rem}
+.marquee .track span{display:inline-flex;gap:50px}
+@keyframes mv{to{transform:translateX(-50%)}}
+
+/* ===== generic section ===== */
+section{position:relative}
+.pad{padding:120px 0}
+.pad-lg{padding:150px 0}
+
+/* intro */
+.intro{background:var(--cream-2);text-align:center;overflow:hidden}
+.intro .lead{font-family:"Zen Old Mincho",serif;font-size:clamp(1.5rem,3.4vw,2.4rem);font-weight:700;color:var(--navy);line-height:1.95;letter-spacing:.04em}
+.intro .lead .c{color:var(--coral)}
+.intro p.body{max-width:40em;margin:34px auto 0;color:#54627a;font-weight:300;font-size:1.02rem;line-height:2.2}
+.intro .ribbon{display:inline-block;margin-bottom:8px}
+
+/* ===== numbers ===== */
+.numbers{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;position:relative;overflow:hidden}
+.numbers .dot-grid{position:absolute;inset:0;opacity:.5;background-image:radial-gradient(rgba(255,255,255,.06) 1.4px,transparent 1.4px);background-size:26px 26px}
+.num-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.num-card{text-align:center;padding:30px 14px;border-radius:22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);transition:.4s}
+.num-card:hover{background:rgba(224,122,95,.1);transform:translateY(-6px);border-color:rgba(224,122,95,.4)}
+.num-card .n{font-family:"Zen Old Mincho",serif;font-weight:900;font-size:3.3rem;line-height:1;background:linear-gradient(120deg,#fff,var(--coral-soft));-webkit-background-clip:text;background-clip:text;color:transparent}
+.num-card .n .u{font-size:1.2rem;-webkit-text-fill-color:var(--coral-soft);margin-left:3px}
+.num-card .lab{margin-top:14px;font-size:.86rem;letter-spacing:.08em;color:rgba(255,255,255,.78)}
+.num-card .sub{font-size:.7rem;color:rgba(255,255,255,.45);margin-top:5px}
+
+/* ===== strengths ===== */
+.strengths{background:var(--paper)}
+.str-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:10px}
+.str-card{
+  background:var(--cream-2);border-radius:24px;padding:42px 32px;position:relative;
+  border:1px solid var(--line);transition:.4s;overflow:hidden;
+}
+.str-card:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
+.str-card .ic{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;margin-bottom:24px;background:linear-gradient(135deg,var(--coral),var(--gold))}
+.str-card .ic.b2{background:linear-gradient(135deg,var(--sky),var(--navy))}
+.str-card .ic.b3{background:linear-gradient(135deg,var(--gold),#e6c878)}
+.str-card .no{position:absolute;top:22px;right:26px;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:2.6rem;color:var(--line);font-weight:600}
+.str-card h3{font-family:"Zen Old Mincho",serif;font-size:1.32rem;font-weight:700;color:var(--navy);margin-bottom:14px;letter-spacing:.04em;line-height:1.6}
+.str-card p{font-size:.92rem;color:#5a6880;font-weight:300;line-height:2}
+
+/* ===== positioning map ===== */
+.posmap{background:linear-gradient(160deg,#f2ece2,#f9f4ec);overflow:hidden}
+.map-frame{
+  position:relative;margin-top:20px;background:var(--paper);border-radius:28px;
+  box-shadow:var(--shadow);padding:54px 48px 48px;border:1px solid var(--line);
+}
+.map-area{position:relative;aspect-ratio:16/10;max-width:860px;margin:0 auto}
+.axis{position:absolute;background:rgba(21,40,68,.18)}
+.axis.x{left:0;right:0;top:50%;height:1.5px}
+.axis.y{top:0;bottom:0;left:50%;width:1.5px}
+.axis-lab{position:absolute;font-size:.74rem;color:#7a869c;letter-spacing:.06em;font-weight:500}
+.axis-lab.top{top:-6px;left:50%;transform:translateX(-50%)}
+.axis-lab.bottom{bottom:-6px;left:50%;transform:translateX(-50%)}
+.axis-lab.left{left:-6px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left center}
+.axis-lab.right{right:-6px;top:50%;transform:translateY(-50%) rotate(90deg);transform-origin:right center}
+.axis-arrow{font-weight:700;color:var(--navy)}
+.bubble{position:absolute;transform:translate(-50%,-50%);border-radius:50%;display:grid;place-items:center;text-align:center;font-size:.72rem;font-weight:500;line-height:1.4;padding:8px;transition:.4s}
+.bubble.gray{background:rgba(122,134,156,.14);color:#6b7790;border:1px dashed rgba(122,134,156,.4)}
+.bubble.sydek{
+  background:radial-gradient(circle at 35% 30%,var(--coral-soft),var(--coral));
+  color:#fff;font-weight:700;box-shadow:0 22px 44px -16px rgba(224,122,95,.85);
+  border:3px solid #fff;z-index:5;animation:pulse 3.2s ease-in-out infinite
+}
+@keyframes pulse{0%,100%{box-shadow:0 22px 44px -16px rgba(224,122,95,.85)}50%{box-shadow:0 22px 60px -10px rgba(224,122,95,1)}}
+.bubble.sydek .tag{display:block;font-size:.62rem;font-weight:400;opacity:.92;margin-top:3px;letter-spacing:.02em}
+.zone{position:absolute;border-radius:30px;border:2px dashed var(--coral);background:rgba(224,122,95,.06);z-index:1}
+.zone-lab{position:absolute;font-family:"Zen Old Mincho",serif;color:var(--coral);font-weight:700;font-size:.82rem;letter-spacing:.04em}
+.map-note{margin-top:38px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.map-note .mn{background:var(--cream-2);border-radius:18px;padding:24px 22px;border-left:3px solid var(--coral)}
+.map-note .mn h4{font-family:"Zen Old Mincho",serif;color:var(--navy);font-size:1rem;margin-bottom:8px;font-weight:700}
+.map-note .mn p{font-size:.83rem;color:#5a6880;font-weight:300;line-height:1.85}
+
+/* ===== work / jobs ===== */
+.jobs{background:var(--paper)}
+.tab-toggle{display:flex;justify-content:center;gap:0;margin-bottom:48px}
+.tab-toggle button{
+  font-family:"Zen Old Mincho",serif;font-size:1.02rem;font-weight:700;letter-spacing:.1em;
+  padding:14px 40px;border:1.5px solid var(--navy);background:transparent;color:var(--navy);
+  cursor:pointer;transition:.3s
+}
+.tab-toggle button:first-child{border-radius:40px 0 0 40px}
+.tab-toggle button:last-child{border-radius:0 40px 40px 0;border-left:none}
+.tab-toggle button.active{background:var(--navy);color:#fff}
+.tab-panel{display:none;animation:fade .5s}
+.tab-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:50px}
+.work-card{background:var(--cream-2);border-radius:22px;padding:34px 28px;border:1px solid var(--line);transition:.4s}
+.work-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.work-card .step{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--coral);font-size:1.1rem;font-weight:600}
+.work-card h4{font-family:"Zen Old Mincho",serif;font-size:1.18rem;color:var(--navy);margin:8px 0 12px;font-weight:700}
+.work-card p{font-size:.9rem;color:#5a6880;font-weight:300;line-height:1.95}
+
+/* requirement table */
+.req-table{background:var(--cream-2);border-radius:22px;overflow:hidden;border:1px solid var(--line)}
+.req-row{display:grid;grid-template-columns:200px 1fr;border-bottom:1px solid var(--line)}
+.req-row:last-child{border-bottom:none}
+.req-row .k{background:var(--navy);color:#fff;padding:20px 26px;font-weight:500;font-size:.9rem;letter-spacing:.06em;display:flex;align-items:center}
+.req-row .v{padding:20px 28px;font-size:.92rem;color:#3a4860;font-weight:300;line-height:1.95}
+.req-row .v b{font-weight:600;color:var(--navy)}
+.badge{display:inline-block;background:rgba(224,122,95,.14);color:var(--coral);border-radius:30px;padding:3px 14px;font-size:.78rem;font-weight:600;margin:2px 4px 2px 0}
+
+/* ===== message ===== */
+.message{background:linear-gradient(165deg,var(--navy-deep),var(--navy));color:#fff;position:relative;overflow:hidden}
+.message .qmark{position:absolute;top:40px;left:6%;font-family:"Cormorant Garamond",serif;font-size:16rem;color:rgba(255,255,255,.04);line-height:1}
+.msg-inner{position:relative;max-width:760px;margin:0 auto;text-align:center}
+.msg-inner .philo{font-family:"Zen Old Mincho",serif;font-size:clamp(1.4rem,3vw,2.1rem);line-height:2.1;font-weight:700;letter-spacing:.05em}
+.msg-inner .philo .c{color:var(--coral-soft)}
+.msg-inner p.body{margin-top:34px;color:rgba(255,255,255,.78);font-weight:300;font-size:1rem;line-height:2.25;letter-spacing:.03em}
+.msg-sign{margin-top:36px;font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--coral-soft);letter-spacing:.12em}
+.msg-sign b{display:block;font-family:"Zen Old Mincho",serif;font-style:normal;color:#fff;font-size:1.1rem;letter-spacing:.1em;margin-top:4px}
+
+/* ===== bases ===== */
+.bases{background:var(--cream-2)}
+.base-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px}
+.base-card{background:var(--paper);border-radius:18px;padding:26px 24px;border:1px solid var(--line);transition:.3s}
+.base-card:hover{border-color:var(--coral);transform:translateY(-4px)}
+.base-card .area{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--coral);font-size:.92rem}
+.base-card h4{font-family:"Zen Old Mincho",serif;color:var(--navy);font-size:1.08rem;margin:4px 0 8px;font-weight:700}
+.base-card p{font-size:.8rem;color:#6a7891;font-weight:300;line-height:1.7}
+.base-overseas{margin-top:22px;text-align:center;font-size:.88rem;color:#5a6880;font-weight:300}
+.base-overseas b{color:var(--navy);font-weight:600}
+
+/* ===== CTA ===== */
+.cta{
+  background:
+    radial-gradient(100% 120% at 80% 0%,rgba(224,122,95,.3),transparent 50%),
+    linear-gradient(150deg,var(--coral),#d3694e);
+  color:#fff;text-align:center;position:relative;overflow:hidden
+}
+.cta h2{font-family:"Zen Old Mincho",serif;font-size:clamp(2rem,4.5vw,3.1rem);font-weight:900;line-height:1.5;letter-spacing:.04em;text-shadow:0 6px 30px rgba(0,0,0,.2)}
+.cta p{margin-top:20px;font-weight:300;font-size:1.05rem;letter-spacing:.04em;opacity:.95}
+.cta .btn-white{background:#fff;color:var(--coral);margin-top:40px;box-shadow:0 20px 40px -16px rgba(0,0,0,.4);font-size:1.05rem;padding:19px 50px}
+.cta .btn-white:hover{transform:translateY(-3px);background:#fff8f5}
+
+/* ===== footer ===== */
+footer{background:var(--navy-deep);color:rgba(255,255,255,.7);padding:64px 0 30px}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand .bt b{font-family:"Zen Old Mincho",serif;color:#fff;font-size:1.3rem;letter-spacing:.14em;display:block}
+.foot-brand .bt span{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:.8rem;letter-spacing:.2em;color:var(--coral-soft)}
+.foot-brand p{font-size:.82rem;margin-top:18px;line-height:1.9;font-weight:300}
+.foot-links{display:flex;gap:60px;flex-wrap:wrap}
+.foot-col h5{color:#fff;font-size:.8rem;letter-spacing:.14em;margin-bottom:16px;font-weight:500}
+.foot-col a{display:block;font-size:.82rem;margin-bottom:11px;font-weight:300;transition:.3s}
+.foot-col a:hover{color:var(--coral-soft)}
+.foot-bottom{margin-top:28px;font-size:.74rem;color:rgba(255,255,255,.4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot-bottom .script{color:rgba(255,255,255,.3);font-size:.9rem}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:.9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* responsive */
+@media(max-width:880px){
+  .nav-links{position:fixed;inset:0 0 0 auto;width:78%;max-width:330px;background:var(--navy);flex-direction:column;justify-content:center;gap:28px;transform:translateX(100%);transition:.4s;padding:40px}
+  .nav-links.open{transform:none}
+  .nav-links a{color:#fff !important;font-size:1rem}
+  .burger{display:flex;flex-direction:column;gap:5px;z-index:120;background:none;border:none;cursor:pointer}
+  .burger span{width:26px;height:2px;background:#fff;transition:.3s}
+  header.nav.scrolled .burger span{background:var(--navy)}
+  .num-grid{grid-template-columns:repeat(2,1fr)}
+  .str-grid,.work-grid,.map-note{grid-template-columns:1fr}
+  .base-grid{grid-template-columns:repeat(2,1fr)}
+  .req-row{grid-template-columns:1fr}
+  .req-row .k{padding:14px 22px}
+  .map-frame{padding:32px 20px}
+  .bubble{font-size:.6rem}
+  .pad,.pad-lg{padding:90px 0}
+  .foot-top{flex-direction:column}
+}
+@media(max-width:520px){
+  .base-grid{grid-template-columns:1fr}
+  .map-note .mn{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <a href="#top" class="brand">
+    <span class="logo-mark">S</span>
+    <span class="bt"><b>SYDEK</b><span>SINCE 1935</span></span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#about">私たちについて</a>
+    <a href="#numbers">数字で見る</a>
+    <a href="#strength">強み</a>
+    <a href="#position">立ち位置</a>
+    <a href="#jobs">募集職種</a>
+    <a href="#message">メッセージ</a>
+    <a href="#entry" class="nav-cta">ENTRY</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="grain"></div>
+  <div class="hero-deco">
+    <!-- precision ring -->
+    <svg class="spin-slow" style="top:8%;right:-80px;opacity:.16" width="420" height="420" viewBox="0 0 200 200" fill="none" stroke="#e07a5f" stroke-width="1">
+      <circle cx="100" cy="100" r="95"/><circle cx="100" cy="100" r="70" stroke="#7fa8c9"/>
+      <g stroke="#fff" stroke-width=".6">
+        <line x1="100" y1="5" x2="100" y2="22"/><line x1="100" y1="178" x2="100" y2="195"/>
+        <line x1="5" y1="100" x2="22" y2="100"/><line x1="178" y1="100" x2="195" y2="100"/>
+        <line x1="30" y1="30" x2="42" y2="42"/><line x1="158" y1="158" x2="170" y2="170"/>
+        <line x1="170" y1="30" x2="158" y2="42"/><line x1="42" y1="158" x2="30" y2="170"/>
+      </g>
+    </svg>
+    <!-- floating tray hexagon -->
+    <svg class="float" style="bottom:18%;left:4%;opacity:.2" width="150" height="150" viewBox="0 0 100 100" fill="none" stroke="#c9a24b" stroke-width="1.4">
+      <polygon points="50,6 90,28 90,72 50,94 10,72 10,28"/>
+      <polygon points="50,24 73,37 73,63 50,76 27,63 27,37"/>
+    </svg>
+    <!-- dotted wave -->
+    <svg style="top:30%;left:46%;opacity:.14" class="float" width="260" height="80" viewBox="0 0 260 80" fill="none" stroke="#fff" stroke-width="1.2" stroke-dasharray="2 6">
+      <path d="M0,40 Q32,4 65,40 T130,40 T195,40 T260,40"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="wrap">
+      <span class="eyebrow">SYDEK RECRUITING SITE</span>
+      <h1 class="rv in">
+        世界の<span class="hl">精密</span>を、<br>
+        無傷で届ける。<br>
+        その<span class="gold">シェア、トップクラス。</span>
+      </h1>
+      <p class="sub rv in">
+        名だたるメーカーの精密部品を、<br>
+        世界へ送り出してきた<b>90年</b>。<br>
+        設計から試作・製造・品質保証まで、私たちの手で。
+      </p>
+      <div class="hero-cta">
+        <a href="#jobs" class="btn btn-primary">募集職種を見る <span class="arr">→</span></a>
+        <a href="#about" class="btn btn-ghost">サイデックを知る</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll"><span>SCROLL</span><span class="bar"></span></div>
+  <div class="marquee">
+    <div class="track">
+      <span>PRECISION&nbsp;・&nbsp;PACKAGING&nbsp;・&nbsp;TOP SHARE&nbsp;・&nbsp;SINCE 1935&nbsp;・&nbsp;MADE IN SENDAI&nbsp;・&nbsp;GLOBAL 6 BASES&nbsp;・&nbsp;</span>
+      <span>PRECISION&nbsp;・&nbsp;PACKAGING&nbsp;・&nbsp;TOP SHARE&nbsp;・&nbsp;SINCE 1935&nbsp;・&nbsp;MADE IN SENDAI&nbsp;・&nbsp;GLOBAL 6 BASES&nbsp;・&nbsp;</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INTRO ===== -->
+<section class="pad intro" id="about">
+  <div class="wrap">
+    <span class="en-label ribbon rv">About Sydek</span>
+    <p class="lead rv">
+      その小さなトレー一枚に、<br>
+      日本の<span class="c">ものづくりの未来</span>が乗っている。
+    </p>
+    <p class="body rv">
+      自動車、電子、液晶、半導体——。世界を動かす精密部品は、ほんの少しの衝撃や振動で価値を失います。
+      それを「無傷で、確実に」届けるために、形状・素材・強度をミリ単位で設計するのがサイデックの仕事。
+      創業1935年、機能包装材という“縁の下”の領域で、私たちは全国シェアトップクラスを走り続けてきました。
+      <br><br>
+      派手さはありません。けれど、あなたが設計した一枚が、世界中の名だたるメーカーの製品を支えている。
+      そんな手触りのある誇りが、ここにはあります。
+    </p>
+  </div>
+</section>
+
+<!-- ===== NUMBERS ===== -->
+<section class="pad numbers" id="numbers">
+  <div class="dot-grid"></div>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="en-label" style="color:var(--coral-soft)">By the Numbers</span>
+      <div class="ja" style="color:#fff">数字で見るサイデック<small>創業90年が積み上げてきた、確かな実績。</small></div>
+    </div>
+    <div class="num-grid">
+      <div class="num-card rv"><div class="n" data-target="90"><span class="cnt">90</span><span class="u">年</span></div><div class="lab">創業からの歩み</div><div class="sub">1935年創業の包装専門メーカー</div></div>
+      <div class="num-card rv"><div class="n">TOP<span class="u">シェア</span></div><div class="lab">機能包装材</div><div class="sub">業界トップクラスの実績</div></div>
+      <div class="num-card rv"><div class="n" data-target="48"><span class="cnt">48</span><span class="u">社+</span></div><div class="lab">毎年の新規開拓</div><div class="sub">技術力が選ばれ続ける証</div></div>
+      <div class="num-card rv"><div class="n" data-target="6"><span class="cnt">6</span><span class="u">拠点</span></div><div class="lab">国内ネットワーク</div><div class="sub">＋中国・フィリピンに海外展開</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STRENGTHS ===== -->
+<section class="pad strengths" id="strength">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="en-label">Our Strength</span>
+      <div class="ja">サイデックの、三つの強み<small>「無名の、トップシェア。」を支える力。</small></div>
+    </div>
+    <div class="str-grid">
+      <div class="str-card rv">
+        <span class="no">01</span>
+        <div class="ic">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+        </div>
+        <h3>設計から品証まで、<br>一気通貫の総合力</h3>
+        <p>包装設計・企画提案・試作・試験・加工組立・デリバリーまで、すべて自社で完結。巨大組織の「歯車」では味わえない、製品の全体に触れる手触りがここにあります。</p>
+      </div>
+      <div class="str-card rv">
+        <span class="no">02</span>
+        <div class="ic b2">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="#fff"/></svg>
+        </div>
+        <h3>創業90年が裏づける、<br>厚い基盤と安定性</h3>
+        <p>車載・電子・液晶。世界を代表するメーカーが顧客。衝撃／振動／3D測定まで自前の試験設備を備え、ベンチャーにはない「ものづくりの厚み」で信頼に応えます。</p>
+      </div>
+      <div class="str-card rv">
+        <span class="no">03</span>
+        <div class="ic b3">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.6 5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>
+        </div>
+        <h3>誰もやらない領域で、<br>全国シェアトップ</h3>
+        <p>精密部品の“包装”という、知る人ぞ知るニッチ領域。だからこそ「知らない＝希少」。全国No.1の技術を、上流の設計から関われる幅とともに提供します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== POSITIONING MAP ===== -->
+<section class="pad-lg posmap" id="position">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="en-label">Positioning</span>
+      <div class="ja">大手の「安定」と、ベンチャーの「裁量」を両取りする。<small>サイデックだけが立てる、独占ゾーン。</small></div>
+    </div>
+    <div class="map-frame rv">
+      <div class="map-area">
+        <div class="axis x"></div>
+        <div class="axis y"></div>
+        <div class="axis-lab top"><span class="axis-arrow">▲</span> 仕事の幅・裁量が広い</div>
+        <div class="axis-lab bottom">狭い・専門特化 <span class="axis-arrow">▼</span></div>
+        <div class="axis-lab left">基盤：薄い・不安定</div>
+        <div class="axis-lab right">基盤：安定・厚い</div>
+
+        <!-- zone -->
+        <div class="zone" style="left:58%;top:6%;width:40%;height:42%"></div>
+        <div class="zone-lab" style="left:60%;top:1%">サイデックの独占ゾーン</div>
+
+        <!-- bubbles -->
+        <div class="bubble gray" style="left:22%;top:24%;width:120px;height:120px">成長<br>ベンチャー</div>
+        <div class="bubble gray" style="left:30%;top:70%;width:108px;height:108px">一般的な<br>中小製造</div>
+        <div class="bubble gray" style="left:64%;top:74%;width:120px;height:120px">大手メーカー<br><small>（顧客側）</small></div>
+        <div class="bubble gray" style="left:52%;top:50%;width:96px;height:96px">中堅・地方の<br>同業</div>
+        <div class="bubble sydek" style="left:78%;top:27%;width:160px;height:160px">
+          サイデック
+          <span class="tag">ニッチトップ<br>×総合力×安定</span>
+        </div>
+      </div>
+      <div class="map-note">
+        <div class="mn rv"><h4>大手とは「裁量」で戦う</h4><p>設計・試作・品質保証まで一気通貫。製品の全体に触れる手触りは、巨大組織の歯車にはありません。</p></div>
+        <div class="mn rv"><h4>ベンチャーとは「安定」で戦う</h4><p>創業90年、大手が顧客、衝撃／振動／3D測定まで自前。ものづくりの厚みが段違いです。</p></div>
+        <div class="mn rv"><h4>同業とは「総合力」で戦う</h4><p>精密部品の“包装”で全国シェアトップ。しかも上流から関われる幅まで併せ持っています。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JOBS ===== -->
+<section class="pad jobs" id="jobs">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="en-label">Recruiting</span>
+      <div class="ja">募集職種<small>新卒・中途、どちらの扉も開いています。</small></div>
+    </div>
+
+    <div class="tab-toggle rv">
+      <button class="active" data-tab="shinsotsu">新卒採用</button>
+      <button data-tab="chuto">中途採用</button>
+    </div>
+
+    <!-- 新卒 -->
+    <div class="tab-panel active" id="shinsotsu">
+      <div class="work-grid">
+        <div class="work-card rv"><span class="step">01 / Sales</span><h4>提案営業</h4><p>大手メーカーの新製品に合わせ、形状や素材をすり合わせ、フルオーダーの包装材を提案。顧客に最も近い場所で、ものづくりの起点をつくります。</p></div>
+        <div class="work-card rv"><span class="step">02 / Design</span><h4>包装設計</h4><p>CADを駆使し、精密部品を守る最適形状を設計。衝撃・振動の試験を重ね、ミリ単位で“無傷”を実現する、技術の中核です。</p></div>
+        <div class="work-card rv"><span class="step">03 / Making</span><h4>製造・品質保証</h4><p>真空成形の高い技術で、設計を製品へ。検査・品証まで自社で担い、世界基準の品質をスピーディーに供給します。</p></div>
+      </div>
+
+      <div class="req-table rv">
+        <div class="req-row"><div class="k">募集職種</div><div class="v"><b>営業・企画営業（法人向け）</b><br>既存顧客メインの包装資材の提案営業。まずは既存営業として経験を積みます。</div></div>
+        <div class="req-row"><div class="k">対象</div><div class="v">大学・大学院（修士・博士）卒　／　業界未経験歓迎<br><span class="badge">メーカーへの興味</span><span class="badge">営業職への関心</span><span class="badge">普通自動車免許（AT可）</span></div></div>
+        <div class="req-row"><div class="k">求める人物像</div><div class="v">主体性を持って取り組める方／積極的にコミュニケーションを取れる方／お客様と良好な関係を築ける方／健康志向をお持ちの方</div></div>
+        <div class="req-row"><div class="k">給与</div><div class="v"><b>年収400万円〜</b>　月給270,000円〜350,000円<br>基本給245,000円〜＋固定残業代（15時間分・超過分は追加支給）／昇給年1回・賞与年2回</div></div>
+        <div class="req-row"><div class="k">勤務時間</div><div class="v">9:00〜18:00（実働8時間・休憩60分）　残業 月20時間程度</div></div>
+        <div class="req-row"><div class="k">休日休暇</div><div class="v"><b>年間休日121日</b>　完全週休2日制（土日）／有給・GW・夏季・年末年始／産前産後・育児・介護休暇</div></div>
+        <div class="req-row"><div class="k">福利厚生</div><div class="v">各種社会保険完備／交通費全額支給／財形貯蓄／退職金制度</div></div>
+        <div class="req-row"><div class="k">教育制度</div><div class="v">入社後2週間は仙台本社で研修（製品知識・先輩同行）。配属後は約3ヶ月のOJT。<b>業界未経験でも安心</b>。</div></div>
+        <div class="req-row"><div class="k">勤務地</div><div class="v">本社（仙台）／東京・名古屋・大阪・福岡 各営業所　※顧客に最も近い拠点で働けます</div></div>
+        <div class="req-row"><div class="k">選考</div><div class="v">カジュアル面接 → 一次選考 → 最終選考（間に適性検査SPI）</div></div>
+      </div>
+    </div>
+
+    <!-- 中途 -->
+    <div class="tab-panel" id="chuto">
+      <div class="work-grid">
+        <div class="work-card rv"><span class="step">Career</span><h4>提案営業（キャリア）</h4><p>これまでの社会人経験を活かし、既存顧客への提案営業へ。包装という専門性を、安定した基盤の上でじっくり身につけられます。</p></div>
+        <div class="work-card rv"><span class="step">Career</span><h4>設計・技術</h4><p>CAD・ものづくりの経験を、精密包装の設計で発揮。自前の試験設備で、技術を深く突き詰める環境があります。</p></div>
+        <div class="work-card rv"><span class="step">Career</span><h4>製造・生産</h4><p>真空成形・品質管理の現場で、全国トップシェアの品質を支える。腰を据えて長く働ける文化が根づいています。</p></div>
+      </div>
+      <div class="req-table rv">
+        <div class="req-row"><div class="k">雇用形態</div><div class="v"><b>正社員</b>（試用期間6ヶ月・条件変更なし／期間の定めなし）</div></div>
+        <div class="req-row"><div class="k">こんな方へ</div><div class="v">「裁量は欲しい、でも厚い基盤の上で」——大手の安定とベンチャーの裁量、その両取りを求める20代後半〜30代の技術者・営業の方に。<br><span class="badge">上流から関わりたい</span><span class="badge">安定×実績で働きたい</span><span class="badge">地元・全国各拠点で</span></div></div>
+        <div class="req-row"><div class="k">働く環境</div><div class="v">全国6拠点＋海外。<b>顧客に最も近い拠点</b>で働けます。残業少なめ・完全週休2日制で、長く腰を据えられる環境です。</div></div>
+        <div class="req-row"><div class="k">待遇</div><div class="v">各種社会保険完備／交通費全額支給／財形貯蓄／退職金制度／昇給年1回・賞与年2回</div></div>
+        <div class="req-row"><div class="k">選考</div><div class="v">カジュアル面接からスタート。まずは「話を聞いてみたい」だけでも歓迎します。</div></div>
+      </div>
+      <p style="text-align:center;margin-top:24px;font-size:.85rem;color:#7a869c;font-weight:300">※中途採用の募集職種・条件の詳細は、エントリー後に個別にご案内します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MESSAGE ===== -->
+<section class="pad-lg message" id="message">
+  <div class="qmark">“</div>
+  <div class="wrap">
+    <div class="msg-inner">
+      <span class="en-label" style="color:var(--coral-soft)">Our Philosophy</span>
+      <p class="philo rv" style="margin-top:18px">
+        <span class="c">虔しみ</span>を己に、<br>
+        <span class="c">愛</span>を諸人に、<br>
+        <span class="c">労わり</span>を萬物に。
+      </p>
+      <p class="body rv">
+        サイデックが大切にしてきた、創業からの心です。<br>
+        包装の対象は、最先端のハイテク製品ばかり。けれど、その一つひとつを「無傷で届けたい」という想いの根っこにあるのは、
+        モノを慈しみ、人を想い、丁寧に手をかける——そんな日本のものづくりの心でした。<br><br>
+        無名かもしれません。けれど、世界の名だたるメーカーが、私たちの包装を選び続けています。
+        その静かな誇りを、次の90年へ。一緒に運んでくれる仲間を待っています。
+      </p>
+      <div class="msg-sign rv">SYDEK CO., LTD.<b>サイデック株式会社</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BASES ===== -->
+<section class="pad bases" id="bases">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="en-label">Our Bases</span>
+      <div class="ja">全国6拠点＋海外へ<small>顧客に最も近い場所で、働ける。</small></div>
+    </div>
+    <div class="base-grid">
+      <div class="base-card rv"><div class="area">Tohoku</div><h4>仙台本社</h4><p>宮城県仙台市若林区卸町／設計・製造・品証の中核拠点</p></div>
+      <div class="base-card rv"><div class="area">Kanto</div><h4>東京営業所</h4><p>東京都千代田区内神田</p></div>
+      <div class="base-card rv"><div class="area">Chubu</div><h4>名古屋営業所</h4><p>愛知県名古屋市西区</p></div>
+      <div class="base-card rv"><div class="area">Kansai</div><h4>大阪営業所</h4><p>大阪府吹田市広芝町</p></div>
+      <div class="base-card rv"><div class="area">Kyushu</div><h4>福岡営業所</h4><p>福岡市博多区博多駅東</p></div>
+      <div class="base-card rv"><div class="area">Tohoku</div><h4>岩手営業所</h4><p>東北エリアをカバー</p></div>
+      <div class="base-card rv"><div class="area">Overseas</div><h4>中国（上海・蘇州・東莞）</h4><p>海外シフトユーザーへ供給</p></div>
+      <div class="base-card rv"><div class="area">Overseas</div><h4>フィリピン</h4><p>グローバルに事業を展開</p></div>
+    </div>
+    <p class="base-overseas rv">国内と同様の<b>設計・製造・販売体制</b>を世界に展開。顧客の“すぐそば”で、ものづくりを支えます。</p>
+  </div>
+</section>
+
+<!-- ===== CTA / ENTRY ===== -->
+<section class="pad-lg cta" id="entry">
+  <div class="wrap">
+    <span class="en-label" style="color:#fff">Entry</span>
+    <h2 class="rv">無名の、トップシェアへ。<br>あなたの手で、世界の精密を運ぼう。</h2>
+    <p class="rv">まずはカジュアル面接から。「話を聞いてみたい」だけでも大歓迎です。</p>
+    <a href="http://www.sydek.co.jp/mail/" class="btn btn-white rv">エントリー・お問い合わせ →</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="bt"><b>SYDEK</b><span>SINCE 1935</span></span>
+        <p>サイデック株式会社<br>〒984-0015 宮城県仙台市若林区卸町5丁目6番2号<br>TEL 022-235-2222（代表）</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>RECRUIT</h5>
+          <a href="#about">私たちについて</a>
+          <a href="#strength">サイデックの強み</a>
+          <a href="#jobs">募集職種</a>
+          <a href="#entry">エントリー</a>
+        </div>
+        <div class="foot-col">
+          <h5>COMPANY</h5>
+          <a href="http://www.sydek.co.jp/" target="_blank" rel="noopener">コーポレートサイト</a>
+          <a href="http://www.sydek.co.jp/company/" target="_blank" rel="noopener">会社案内</a>
+          <a href="http://www.sydek.co.jp/product/" target="_blank" rel="noopener">製品案内</a>
+          <a href="http://www.sydek.co.jp/mail/" target="_blank" rel="noopener">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© SYDEK CO., LTD. All Rights Reserved.</span>
+      <span class="script">World's precision, delivered untouched.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// nav scroll
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>60)});
+// burger
+const burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+burger.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+// reveal
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+// tabs
+document.querySelectorAll('.tab-toggle button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-toggle button').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById(b.dataset.tab).classList.add('active');
+  });
+});
+// count up
+const cu=new IntersectionObserver((es)=>es.forEach(e=>{
+  if(e.isIntersecting){
+    const el=e.target.querySelector('.cnt');
+    if(el){const t=+el.parentElement.dataset.target;let n=0;const st=Math.max(1,Math.ceil(t/40));
+      const iv=setInterval(()=>{n+=st;if(n>=t){n=t;clearInterval(iv)}el.textContent=n},26);}
+    cu.unobserve(e.target);
+  }
+}),{threshold:.5});
+document.querySelectorAll('.num-card').forEach(c=>cu.observe(c));
+</script>
+</body>
+</html>
